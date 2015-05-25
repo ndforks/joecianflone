@@ -1,0 +1,57 @@
+.menu-toggler {
+   color: $color-white;
+   text-decoration: none;
+   padding: 18px 32px;
+   display: block;
+   &__bars {
+      @include font-size(24px);
+      display: block;
+      padding-bottom: 5px;
+   }
+   &__text {
+      @include font-size(10px);
+      display: block;
+      text-transform: uppercase;
+   }
+}
+
+.navigation-list {
+   &__item {
+      @include font-size(31px);
+      font-weight: $font-weight-ultra-bold;
+      line-height: 1.1;
+      padding-bottom: 8px;
+      @media screen and ( max-height: 700px )  {
+         @include font-size(25px);
+      }
+   }
+
+   &--icons {
+      .navigation-list__item {
+         @include font-size(23px);
+         display: inline-block;
+         padding-right: 15px;
+         @include last() {
+            padding-right: 0;
+         }
+         @media screen and ( max-height: 700px )  {
+            @include font-size(18px);
+            padding-right: 10px;
+         }
+      }
+   }
+
+   &--secondary {
+      padding-top: 6px;
+      .navigation-list__item {
+         @include font-size(16px);
+         font-weight: $font-weight-normal;
+         padding-bottom: 9px;
+         @media screen and ( max-height: 700px )  {
+            @include font-size(14px);
+            padding-bottom: 5px;
+         }
+      }
+   }
+}
+

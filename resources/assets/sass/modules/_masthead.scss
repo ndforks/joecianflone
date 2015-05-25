@@ -1,0 +1,10 @@
+.masthead {
+   &__logo {
+      text-align: right;
+      a  {
+         @include font-size(55px);
+         color: $color-gray;
+         text-decoration: none;
+      }
+   }
+}

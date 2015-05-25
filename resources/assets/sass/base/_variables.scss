@@ -1,0 +1,40 @@
+/**
+ * Fonts
+ * ----------------------------------------------------------------------------
+ * I'm a simple guy with simple needs, I don't like to mix a lot of different
+ * fonts in my designs.  To keep it simple, I have two different font types:
+ * copy and headlines.  They are exactly what they sound like.
+ *
+ * Make sure you also define "fallbacks" on the off chance Google fonts goes
+ * down or your user is on a crappy connection.
+ *
+ */
+$font-copy:      "Roboto", "Helvetica Neue", sans-serif;
+$font-headlines: "Patua One", Georgia, serif ;
+
+// If you have the ability to use variables, damnit, use them.  The concept of
+// "bold" and "light" can mean different things to different fonts, by defining
+// variables it's easier to change later on
+$font-weight-ultra-bold:  900;
+$font-weight-normal:      400;
+$font-weight-light:       300;
+$font-weight-thin:        100;
+
+$font-size-base: 62.5%;
+$letter-spacing: 0.04em;
+
+// Raw colors
+$color-gray:       #454444;
+$color-blue:       #68aad5;
+$color-white:      #fff;
+$color-silver:     #a6a5a5;
+$color-dark-gray:  #444;
+$color-off-white:  #e8e8e8;
+$color-light-gray: #6f6e6e;
+
+@include layout((
+  columns: 16,
+  gutter-position: no-gutter,
+  gutters: .25,
+  global-box-sizing: border-box,
+));
