@@ -144,6 +144,7 @@ return [
         'JoeCianflone\Providers\EventServiceProvider',
         'JoeCianflone\Providers\RouteServiceProvider',
 
+         'Thujohn\Twitter\TwitterServiceProvider',
     ],
 
     /*
@@ -191,6 +192,8 @@ return [
         'URL'       => 'Illuminate\Support\Facades\URL',
         'Validator' => 'Illuminate\Support\Facades\Validator',
         'View'      => 'Illuminate\Support\Facades\View',
+
+        'Twitter'   => 'Thujohn\Twitter\Facades\Twitter',
 
     ],
 
