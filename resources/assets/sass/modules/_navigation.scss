@@ -1,8 +1,9 @@
 .menu-toggler {
    color: $color-white;
-   text-decoration: none;
-   padding: 18px 32px;
    display: block;
+   padding: 18px 0;
+   text-decoration: none;
+
    &__bars {
       @include font-size(24px);
       display: block;

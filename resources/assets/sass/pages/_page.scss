@@ -1,10 +1,10 @@
 .container {
+    align-content: center;
+    align-items: stretch;
     display: flex;
     flex-direction: row;
     flex-wrap: none;
     justify-content: center;
-    align-content: center;
-    align-items: stretch;
     min-height: 100%;
 }
 
@@ -12,15 +12,16 @@
    align-self: stretch;
    background: $color-gray;
    color: $color-white;
-   order: 1;
    flex: 0 0 303px;
+   order: 1;
+   position: relative;
    text-align: right;
 
    .wrapper {
+      height: 95%;
       padding: 111px 32px 0 32px;
       position: fixed;
       width: 303px;
-      height: 95%;
       @media screen and ( max-height: 900px )  {
          padding-top: 10px;
       }
@@ -40,8 +41,8 @@ footer {
    right: 33px;
    p {
       @include font-size(9px);
-      padding-bottom: 10px;
       font-weight: $font-weight-thin;
+      padding-bottom: 10px;
    }
    @media screen and ( max-height: 900px )  {
       bottom: auto;
