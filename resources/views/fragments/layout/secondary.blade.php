@@ -1,9 +1,9 @@
-<section class="secondary-content">
-   <a href="#" class="menu-toggler" title="Toggle Sidebar">
+<section class="secondary-content js-secondary-content">
+   <a href="#" class="menu-toggler js-menu-toggler" title="Toggle Sidebar">
       <span class="menu-toggler__bars fa fa-bars"></span>
       <span class="menu-toggler__text">nav</span>
    </a>
-   <div class="wrapper">
+   <div class="wrapper js-wrapper">
       <nav>
          <ul class="navigation-list">
             <li class="navigation-list__item is-selected"><a href="#">home</a>
