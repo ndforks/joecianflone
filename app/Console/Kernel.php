@@ -12,6 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         'JoeCianflone\Console\Commands\Inspire',
+        'JoeCianflone\Console\Commands\GetTweets',
     ];
 
     /**
