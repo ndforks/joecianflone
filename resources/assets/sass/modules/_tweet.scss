@@ -1,0 +1,9 @@
+.tweet {
+   @include font-size(32px);
+   font: {
+      family: $font-headlines;
+      weight: $font-weight-ultra-bold;
+   }
+   margin: 0;
+   padding: 0;
+}

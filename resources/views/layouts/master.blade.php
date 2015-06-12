@@ -13,7 +13,7 @@
                <header class="masthead">
                   <h1 class="masthead__logo"><a href="/" title="JoeCianflone.co">JoeCianflone.co</a></h1>
                </header>
-               <section class="content" style="height: 5000px;">
+               <section class="content">
                   @yield('main')
                </section>
             </div>

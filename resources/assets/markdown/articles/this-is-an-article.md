@@ -4,6 +4,7 @@ summary: This is a quick summary of the thing I am going to write about
 byline: JoeCianflone
 pubdate: 06-11-2015
 tags: foo
+pin: true
 ---
 
 #Hello World

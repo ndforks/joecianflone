@@ -71,5 +71,7 @@
  * and move all the modules around and your site should work fine.  No cascade.
  */
 // Modules ....................................................................
-@import "modules/_masthead";
 @import "modules/_navigation";
+@import "modules/_masthead";
+@import "modules/_tweet";
+@import "modules/_post";

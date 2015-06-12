@@ -15,8 +15,7 @@ class EloquentStreamRepository implements StreamRepository {
 
    public function getFullStream($count = 10, $offset = 0)
    {
-      $foo = $this->stream->skip($offset)->take($count)->orderBy('item_created_at', 'desc')->get();
-      return $foo->toJson();
+      return $this->stream->skip($offset)->take($count)->orderBy('item_created_at', 'desc')->get()->toJson();
    }
 
    public function getStreamType($type, $count = 10, $offset = 0)
@@ -36,6 +35,11 @@ class EloquentStreamRepository implements StreamRepository {
       if ($count <= 0) {
          $this->stream->create($item);
       }
+   }
+
+   public function updateStreamItem($itemId, $updates)
+   {
+
    }
 
 }

@@ -19,7 +19,7 @@
                <li class="navigation-list__item"><a href="#">about</a></li>
                <li class="navigation-list__item"><a href="#">feed</a></li>
             </ul>
-            <hr>
+            <hr class="rule--nav">
             <ul class="navigation-list">
                <li class="navigation-list__item"><a href="#">Projects &amp; Contributions</a>
                   <ul class="navigation-list--secondary">
@@ -28,7 +28,7 @@
                   </ul>
                </li>
             </ul>
-            <hr>
+            <hr class="rule--nav">
             <ul class="navigation-list--icons">
                <li class="navigation-list__item"><a href="//twitter.com/JoeCianflone" target="_blank" title="Twitter"><span class="fa fa-twitter"></span></a></li>
                <li class="navigation-list__item"><a href="//github.com/JoeCianflone" target="_blank" title="Github"><span class="fa fa-github"></span></a></li>

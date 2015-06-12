@@ -7,4 +7,6 @@ interface StreamRepository {
    public function getStreamType($type, $count = 10, $offset = 0);
 
    public function saveLatestToStream($items);
+
+   public function updateStreamItem($itemId, $updates);
 }
