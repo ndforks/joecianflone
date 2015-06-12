@@ -11,8 +11,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        'JoeCianflone\Console\Commands\Inspire',
         'JoeCianflone\Console\Commands\GetTweets',
+        'JoeCianflone\Console\Commands\GetArticles',
     ];
 
     /**
@@ -23,7 +23,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('inspire')
-                 ->hourly();
+
     }
 }

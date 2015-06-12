@@ -15,12 +15,13 @@ class EloquentStreamRepository implements StreamRepository {
 
    public function getFullStream($count = 10, $offset = 0)
    {
-      return $this->stream->skip($offset)->take($count)->orderBy('social_created_at', 'desc')->get()->toJson();
+      $foo = $this->stream->skip($offset)->take($count)->orderBy('item_created_at', 'desc')->get();
+      return $foo->toJson();
    }
 
    public function getStreamType($type, $count = 10, $offset = 0)
    {
-      return $this->stream->where("social_type", $type)->skip($offset)->take($count)->orderBy('social_created_at', 'desc')->get()->toJson();
+      return $this->stream->where("type", $type)->skip($offset)->take($count)->orderBy('item_created_at', 'desc')->get()->toJson();
    }
 
    public function getPinnedStreamItem()
@@ -30,7 +31,7 @@ class EloquentStreamRepository implements StreamRepository {
 
    public function saveLatestToStream($item)
    {
-      $count = $this->stream->where('social_type', $item["social_type"])->where('social_id', $item["social_id"])->count();
+      $count = $this->stream->where('type', $item["type"])->where('item_id', $item["item_id"])->count();
 
       if ($count <= 0) {
          $this->stream->create($item);

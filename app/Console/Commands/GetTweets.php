@@ -19,7 +19,7 @@ class GetTweets extends Command
    *
    * @var string
    */
-   protected $description = 'Gets the last X tweets';
+   protected $description = 'This gets the last 10 tweets';
 
    /**
    * Create a new command instance.

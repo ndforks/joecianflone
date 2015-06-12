@@ -14,13 +14,12 @@ class CreateBasicTables extends Migration
       Schema::dropIfExists('streams');
       Schema::create('streams', function (Blueprint $table) {
          $table->string('id')->unique()->primary();
-         $table->string('social_id')->index();
-         $table->string("social_type")->index();
+         $table->string('item_id')->index();
+         $table->string("type")->index();
          $table->boolean("is_pinned")->default(false);
-         $table->json("meta_data")->nullable();
-         $table->json("data");
-         $table->timestamp("social_created_at");
-
+         $table->json("meta")->nullable();
+         $table->json("content");
+         $table->timestamp("item_created_at");
          $table->timestamps();
       });
    }

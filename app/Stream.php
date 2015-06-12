@@ -8,17 +8,23 @@ class Stream extends Model
 {
     protected $table = 'streams';
 
-    protected $fillable = ['id', 'meta_data', "data", "social_type", "is_pinned", "social_created_at", "social_id"];
+    protected $fillable = ['id', 'item_id', 'type', 'is_pinned', 'meta', 'content', 'item_created_at'];
 
-    protected $dates = ["social_created_at", "created_at", "updated_at"];
+    protected $dates = ['item_created_at', 'created_at', 'updated_at'];
 
-    public function getData($value)
-    {
-       return json_decode($value);
-    }
+    protected $casts = [
+       'is_pinned' => 'boolean',
+       'content' => 'array',
+       'meta' => 'array'
+    ];
 
-    public function getMetaData($value)
-    {
-       return json_decode($value);
-    }
+    // public function getContentAttribute($value)
+    // {
+    //    return json_decode($value);
+    // }
+
+    // public function getMetaAttribute($value)
+    // {
+    //    return json_decode($value);
+    // }
 }

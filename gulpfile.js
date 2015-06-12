@@ -54,15 +54,15 @@ var config = {
       js:     "public/assets/js/",
       css:    "public/assets/css/",
       imgs:   "public/assets/images/",
-      fonts:  "public/assets/fonts/",
+      fonts:  "public/assets/fonts/"
    },
    src: {
       js:    "resources/assets/js/",
       hbs:   "resources/assets/js/templates/",
       sass:  "resources/assets/sass/",
       imgs:  "resources/assets/images/",
-      tmpl:  "templates.tpl"
-      bower: "resources/assets/bower/",
+      tmpl:  "templates.tpl",
+      bower: "resources/assets/bower/"
    }
 };
 
