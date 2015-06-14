@@ -1,7 +1,7 @@
-var Events = (function() {
+var Utils = (function(){
    "use strict";
 
-   var utils = {
+   return {
       generateUUID: function() {
          var d = Date.now();
          var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -14,156 +14,206 @@ var Events = (function() {
       },
       generateEventName: function(asEventName) {
          if (_.isUndefined(asEventName)) {
-            return "app/event/"+utils.generateUUID();
+            return "app/event/" + Utils.generateUUID();
          }
 
          return asEventName;
-      }
-   };
-
-   var doBind = {
-      asPageLoad: function(bindEventContext, asEventName, toUserData) {
-         bindEventContext.ready(function() {
-            PubSub.publish(asEventName, toUserData);
-         });
-
-         return false;
       },
-      asKeyPress: function(bindEventContext, bindEvent, keyPress, selector, asEventName, toUserData) {
-         $(document).on("keydown", selector, function(e) {
-            var charCode = (e.which ? e.which : e.keyCode);
-            _.each(keyPress, function(element, index, list){
-               if (element === charCode) {
-                 PubSub.publish(asEventName, _.extend({
-                    eventElement: $(selector +":focus") || null
-                 }, toUserData));
-               }
-            });
-         });
-      },
-      asScroll: function(bindEventContext, bindEvent, keyPress, selector, asEventName, toUserData) {
-         $(selector).scroll(function() {
-            PubSub.publish(asEventName, _.extend({
-               eventElement: $(this)
-            }, toUserData));
-         });
-      },
-      asNormal: function(bindEventContext, bindEvent, selector, asEventName, toUserData) {
-         bindEventContext.on(bindEvent, selector, function(e) {
-            PubSub.publish(asEventName, _.extend({
-               eventElement: $(this),
-            }, toUserData));
+      splitter: function() {
 
-            e.preventDefault();
-            e.stopImmediatePropagation();
-         });
-
-         return false;
       }
    };
+})();
 
-   var triggerBind = function(bindEventContext, bindEvent, keyPress, selector, asEventName, toUserData) {
-      if (bindEvent === "load") {
-         return doBind.asPageLoad(bindEventContext, asEventName, toUserData);
-      }
+var Binder = (function() {
+   "use strict";
 
-      if (bindEvent.indexOf("key") === 0) {
-         return doBind.asKeyPress(bindEventContext, bindEvent, keyPress, selector, asEventName, toUserData);
-      }
-
-      if (bindEvent.indexOf("scroll") === 0) {
-         return doBind.asScroll(bindEventContext, bindEvent, keyPress, selector, asEventName, toUserData);
-      }
-
-      return doBind.asNormal(bindEventContext, bindEvent, selector, asEventName, toUserData);
-   };
-
-   var doPublish = function(bindEventContext, bindEvent, keyPress, selector, whereKey, whereValue, asEventName, toUserData) {
-      if (_.isUndefined(whereKey) || $(whereKey).hasClass(whereValue)) {
-         triggerBind(bindEventContext, bindEvent, keyPress, selector, asEventName, toUserData);
-      }
-   };
-
-   var doSubscribe = function(asEventName, funcName, context) {
-      PubSub.subscribe(asEventName, function(data) {
-         if (_.isArray(funcName)) {
-            _.each(funcName, function(userFunc) {
-               userFunc.call(context, data);
+   return {
+      asLoad: function(eo) {
+         if (eo.bindEvent === "unload") {
+            $(document).unload(function() {
+               PubSub.publish(eo.asEventName, eo.userData);
             });
 
             return false;
          }
-         return funcName.call(context, data);
-      });
+
+         $(document).ready(function() {
+            PubSub.publish(eo.asEventName, eo.userData);
+         });
+
+         return false;
+      },
+      asKeyboard: function(eo) {
+         var keyType = (eo.bindEvent === "key" || eo.bindEvent === "keydown") ? "keydown" : eo.bindEvent;
+
+         $(document).on(keyType, eo.selector, function(e) {
+            var charCode = (e.which ? e.which : e.keyCode);
+            _.each(eo.keyPress, function(element, index, list){
+               if (element === charCode) {
+                  PubSub.publish(eo.asEventName, _.extend({
+                     eventElement: $(eo.selector +":focus") || null
+                  }, eo.userData));
+               }
+            });
+         });
+      },
+      asDocument: function(eo) {
+         $(document).on(eo.bindEvent, eo.selector, function(e) {
+
+            PubSub.publish(eo.asEventName, _.extend({
+               eventElement: $(this)
+            }, eo.userData));
+
+            e.stopImmediatePropagation();
+            e.preventDefault();
+         });
+      },
+
+      asWindow: function(eo) {
+         $(window).on(eo.bindEvent, eo.selector, function(e) {
+            PubSub.publish(eo.asEventName, _.extend({
+               eventElement: $(this)
+            }, eo.userData));
+            e.preventDefault();
+         });
+
+         return false;
+      },
+
+      asBrowser: function(eo) {
+         //window.resize...
+         if (eo.bindEvent === "resize") {
+            return this.asWindow(eo);
+         }
+
+         // scroll
+         $(eo.selector).scroll(function() {
+            PubSub.publish(eo.asEventName, _.extend({
+               eventElement: $(this)
+            }, eo.userData));
+         });
+
+         return false;
+      },
+      asMouse: function(eo) {
+         return this.asDocument(eo);
+      },
+      asForm: function(eo) {
+         return this.asDocument(eo);
+      }
+    };
+})();
+
+var Events = (function() {
+   "use strict";
+
+   var eventObject = {
+      context:          "",
+      keyPress:         "",
+      selector:         "",
+      whereKey:         "",
+      userData:         "",
+      bindEvent:        "",
+      whereValue:       "",
+      asEventName:      "",
+      bindEventContext: ""
+   };
+
+   var triggers = {
+      pub: function(eo) {
+         if (_.isUndefined(eo.whereKey) || $(eo.whereKey).hasClass(eo.whereValue)) {
+            bindEventAs(eo);
+         }
+      },
+      sub: function(eo, funcName) {
+         PubSub.subscribe(eo.asEventName, function(data) {
+            if (_.isArray(funcName)) {
+               _.each(funcName, function(userFunc) {
+                  userFunc.call(eo.context, data);
+               });
+               return false;
+            }
+            return funcName.call(eo.context, data);
+         });
+      }
+   };
+
+   var bindEventAs = function(eo) {
+      if (eo.bindEvent === "ready" || eo.bindEvent === "load" || eo.bindEvent === "unload") {
+         return Binder.asLoad(eo);
+      }
+
+      if (eo.bindEvent.indexOf("key") === 0) {
+         return Binder.asKeyboard(eo);
+      }
+
+      if (eo.bindEvent === "resize" || eo.bindEvent === "scroll") {
+         return Binder.asBrowser(eo);
+      }
+
+      if (eo.bindEvent.indexOf("mouse") === 0 || eo.bindEvent === "hover" || eo.bindEvent === "click" || eo.bindEvent === "dblclick") {
+         return Binder.asMouse(eo);
+      }
+
+      if (eo.bindEvent.indexOf("focus") === 0 || eo.bindEvent === "blur" || eo.bindEvent === "change" || eo.bindEvent === "select" || eo.bindEvent === "submit") {
+         return Binder.asForm(eo);
+      }
+
+
    };
 
    return {
 
       bind: function(bindEvent, selector, key) {
-         var splitEvents = bindEvent.split(".");
+         eventObject.bindEvent = bindEvent;
+         eventObject.selector  = _.isUndefined(selector) ? null : selector;
+         eventObject.keyPress  = _.isUndefined(key) ? null : key;
 
-         this.bindEventContext = splitEvents.length > 1 ? $(window) : $(document);
-         this.bindEvent        = splitEvents.length > 1 ? splitEvents[1] : splitEvents[0];
-         this.selector         = _.isUndefined(selector) ? null : selector;
-         this.keyPress         = _.isUndefined(key) ? null : key;
-
-         if (this.bindEvent.indexOf("key") === 0 && _.isNull(this.keyPress)) {
-            this.keyPress = this.selector;
-            this.selector = null;
+         if (eventObject.bindEvent.indexOf("key") === 0 && _.isNull(eventObject.keyPress)) {
+            eventObject.keyPress = eventObject.selector;
+            eventObject.selector = null;
          }
 
          return this;
       },
 
       where: function(key, value) {
-         if (_.isUndefined(value)) {
-            this.whereKey = "body";
-            this.whereValue = key;
-
-            return this;
-         }
-
-         this.whereKey    = key;
-         this.whereValue  = value;
+         eventObject.whereKey    = _.isUndefined(value) ? "body" : key;
+         eventObject.whereValue  = _.isUndefined(value) ? key : value;
 
          return this;
       },
 
       as: function(eventName) {
-         this.asEventName = eventName;
+         eventObject.asEventName = eventName;
 
          return this;
       },
 
       to: function(funcName, context, userData) {
-         var asEventName = utils.generateEventName(this.asEventName);
-             userData = _.isUndefined(userData) ? {} : userData;
-             context = _.isUndefined(context) ? window : context;
-
-         doPublish(this.bindEventContext, this.bindEvent, this.keyPress, this.selector, this.whereKey, this.whereValue, asEventName, userData);
+         eventObject.asEventName = Utils.generateEventName(eventObject.asEventName);
+         eventObject.userData    = _.isUndefined(userData) ? {} : userData;
+         eventObject.context     = _.isUndefined(context) ? window : context;
+         triggers.pub(eventObject);
 
          if (_.isFunction(funcName) ||  _.isArray(funcName)) {
-            doSubscribe(asEventName, funcName, context);
+            triggers.sub(eventObject, funcName);
          }
 
+         // Kill everything before you go out...
+         eventObject = {};
          return false;
       },
 
-      andBoradcast: function(data) {
-         this.to(data);
-
-         return false;
+      publish: function(eventName, userData) {
+         PubSub.publish(eventName, userData);
       },
 
-      listenFor: function(asEventName) {
-         this.as(asEventName);
-
-         return this;
-      },
-
-      andCall: function(funcName, context) {
-         doSubscribe(this.asEventName, funcName, context);
-         return false;
+      subscribe: function(eventName, funcName, context) {
+         PubSub.subscribe(eventName, function(data) {
+            return funcName.call(context, data);
+         });
       }
    };
 })();

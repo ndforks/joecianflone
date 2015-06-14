@@ -1,6 +1,7 @@
 App.Modules = App.Modules || {};
-
 App.Modules.Navigation = function () {
+   "use strict";
+
    var options = {
       wrapper:   ".js-wrapper",
       hide:      ".js-toggle-hide",
@@ -9,6 +10,7 @@ App.Modules.Navigation = function () {
    };
 
    var toggleNav = function(data) {
+      console.log("toggle");
       var container = data.eventElement.closest(options.container);
 
       container.find(options.hide).toggle();
@@ -35,6 +37,7 @@ App.Modules.Navigation = function () {
    return {
       init: function() { return this; },
       events: function() {
+         console.log("events");
          Events.bind("click", options.toggler).to(toggleNav, this);
 
          return this;

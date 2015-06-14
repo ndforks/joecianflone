@@ -1,9 +1,12 @@
 .tweet {
-   @include font-size(32px);
-   font: {
-      family: $font-headlines;
-      weight: $font-weight-ultra-bold;
-   }
    margin: 0;
-   padding: 0;
+   padding: 1.5rem 0;
+   &__text {
+      @include font-size(22px);
+      color: #454444;
+      font: {
+         family: $font-headlines;
+         weight: $font-weight-ultra-bold;
+      }
+   }
 }

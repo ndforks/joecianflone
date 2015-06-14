@@ -2,12 +2,11 @@
 headline: This is my headline
 summary: This is a quick summary of the thing I am going to write about
 byline: JoeCianflone
-pubdate: 06-11-2015
+pubdate: June 11, 2015
 tags: foo
 pin: true
 ---
 
-#Hello World
 Now this is an article!
 
 What do you think about it?

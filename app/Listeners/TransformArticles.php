@@ -16,6 +16,7 @@ class TransformArticles
 {
 
    private $parser;
+
    private $stream;
 
     /**
@@ -39,22 +40,24 @@ class TransformArticles
     {
       foreach ($event->articles as $article) {
          $document = $this->parser->parse(Storage::get($article));
-         $yaml = $document->getYAML();
 
+         $slug = substr($article, strrpos($article, "/")+1);
+         $yaml = $document->getYAML();
          $this->stream->saveLatestToStream([
-            'id'      => Uuid::uuid1()->toString(),
-            'type'    => 'article',
-            'item_id' => md5($article),
-            'content' => json_encode([
+            'id'              => Uuid::uuid1()->toString(),
+            'type'            => 'article',
+            'item_id'         => md5($article),
+            'slug'            => str_replace(".md", '', $slug),
+            'is_pinned'       => isset($yaml['pin']) ? $yaml['pin'] : false,
+            'item_created_at' => Carbon::parse(isset($yaml['pubdate']) ? $yaml['pubdate'] : Carbon::now()),
+            'content' => [
                'headline' => isset($yaml['headline']) ? $yaml['headline'] : null,
                'byline'   => isset($yaml['byline']) ? $yaml['byline'] : null,
                'summary'  => isset($yaml['summary']) ? $yaml['summary'] : null,
-               'pubdate'  => Carbon::parse(isset($yaml['pubdate']) ? $yaml['pubdate'] : Carbon::now())->toDateTimeString(),
+               'pubdate'  => Carbon::parse(isset($yaml['pubdate']) ? $yaml['pubdate'] : Carbon::now()),
                'body'     => $document->getContent(),
                'tags'     => isset($yaml['tags']) ? $yaml['tags'] : null
-             ]),
-            'is_pinned'       => isset($yaml['pin']) ? $yaml['pin'] : false,
-            'item_created_at' => Carbon::parse($yaml['pubdate'])->toDateTimeString()
+             ],
          ]);
       }
     }

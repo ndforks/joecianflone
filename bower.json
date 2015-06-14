@@ -17,7 +17,10 @@
     "normalize-scss": "*",
     "amplify": "*",
     "momentjs": "*",
-    "html5-boilerplate": "*"
+    "html5-boilerplate": "*",
+    "livestampjs": "*",
+    "html5-polyfills": "*",
+    "prism": "*"
   },
   "license": "MIT",
   "ignore": [

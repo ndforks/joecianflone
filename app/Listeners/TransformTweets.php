@@ -30,13 +30,13 @@ class TransformTweets implements ShouldQueue
    */
    public function handle(GotSomeTweets $event)
    {
-      foreach ($event->tweets as $tweet) {
+       foreach ($event->tweets as $tweet) {
          $this->stream->saveLatestToStream([
             'id' => Uuid::uuid1()->toString(),
-            'content' => json_encode($tweet),
+            'content' => $tweet,
             'item_id' => $tweet->id_str,
             'type' => 'twitter',
-            'item_created_at' => Carbon::parse($tweet->created_at)->timezone(env("APP_TIMEZONE"))->toDateTimeString()
+            'item_created_at' => Carbon::parse($tweet->created_at)->timezone(env("APP_TIMEZONE"))
          ]);
       }
    }

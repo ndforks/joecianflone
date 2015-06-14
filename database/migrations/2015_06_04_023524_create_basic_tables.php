@@ -16,6 +16,7 @@ class CreateBasicTables extends Migration
          $table->string('id')->unique()->primary();
          $table->string('item_id')->index();
          $table->string("type")->index();
+         $table->string("slug")->nullable();
          $table->boolean("is_pinned")->default(false);
          $table->json("meta")->nullable();
          $table->json("content");

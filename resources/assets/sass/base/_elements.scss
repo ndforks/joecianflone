@@ -46,6 +46,10 @@ p, ul, ol {
    font-size: inherit;
 }
 
+a {
+   color: inherit;
+}
+
 p {
    margin: 0;
    padding: 0;
@@ -54,6 +58,7 @@ p {
 nav {
    ol, ul {
       list-style-type: none;
+      margin: 0;
       li {
          margin: 0;
          padding: 0;

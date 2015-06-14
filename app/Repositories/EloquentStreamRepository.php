@@ -15,17 +15,22 @@ class EloquentStreamRepository implements StreamRepository {
 
    public function getFullStream($count = 10, $offset = 0)
    {
-      return $this->stream->skip($offset)->take($count)->orderBy('item_created_at', 'desc')->get()->toJson();
+      return json_decode($this->stream->skip($offset)->take($count)->orderBy('item_created_at', 'desc')->get()->toJson());
    }
 
    public function getStreamType($type, $count = 10, $offset = 0)
    {
-      return $this->stream->where("type", $type)->skip($offset)->take($count)->orderBy('item_created_at', 'desc')->get()->toJson();
+      return json_decode($this->stream->where("type", $type)->skip($offset)->take($count)->orderBy('item_created_at', 'desc')->get()->toJson());
    }
 
    public function getPinnedStreamItem()
    {
-      return $this->stream->where("is_pinned", true)->get()->toJson();
+      return json_decode($this->stream->where("is_pinned", true)->first()->toJson());
+   }
+
+   public function getArticleBySlug($slug)
+   {
+      return json_decode($this->stream->where("slug", $slug)->first()->toJson());
    }
 
    public function saveLatestToStream($item)

@@ -1,0 +1,39 @@
+
+.meta-data {
+   @include container;
+   &--full {
+      @include span(16 of 16);
+      margin: 1em 0;
+   }
+   &--left {
+      @include span(10 of 16);
+      margin: 1em 0;
+   }
+   &--right {
+      @include span(last 6 of 16);
+      margin: 1em 0;
+      text-align: right;
+   }
+}
+
+.meta-list {
+   color: #6f6e6e;
+   font-family: $font-copy;
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+
+   &__item {
+      @include font-size(14px);
+      display: inline-block;
+      padding: 0 10px;
+      font-weight: $font-weight-light;
+
+      @include first() {
+         padding-left: 0;
+      }
+      @include last() {
+         padding-right: 0;
+      }
+   }
+}
