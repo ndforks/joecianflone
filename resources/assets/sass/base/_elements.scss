@@ -36,9 +36,11 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
+   color: $color-light-gray;
    font: {
       family: $font-headlines;
    }
+   letter-spacing: 0;
    margin: 0;
 }
 

@@ -11,6 +11,6 @@
       </header>
       <section class="post__body">
          {!! $element->content->summary !!}
-         <p><a href="/article/{{ $element->slug }}" title="">Read More...</a></p>
+         <p class="post__read-more"><a href="/article/{{ $element->slug }}" title="">Read More...</a></p>
       </section>
    </article>

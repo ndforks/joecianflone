@@ -1,7 +1,7 @@
 .post {
    &__header {
       h1 {
-         @include font-size(32px);
+         @include font-size(39px);
       }
       h2 {
          @include font-size(28px);
@@ -10,6 +10,18 @@
    &__body {
       @include font-size(16px);
       line-height: 1.7;
+   }
+   a {
+      color: $color-blue;
+   }
+   &__read-more {
+      @include font-size(13px);
+      margin: 1em 0;
+      a {
+         color: $color-blue;
+         font-weight: $font-weight-ultra-bold;
+         text-decoration: none;
+      }
    }
 }
 

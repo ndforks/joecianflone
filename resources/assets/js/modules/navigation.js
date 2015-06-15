@@ -10,9 +10,7 @@ App.Modules.Navigation = function () {
    };
 
    var toggleNav = function(data) {
-      console.log("toggle");
       var container = data.eventElement.closest(options.container);
-
       container.find(options.hide).toggle();
 
       if (container.hasClass("js-container-closed")) {
