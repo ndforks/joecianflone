@@ -1,3 +1,16 @@
+.mediabox {
+   @include container;
+   &__visual {
+      @include span(4 of 16);
+   }
+   &__text {
+      @include span(last 12 of 16);
+      &--full {
+         @include span(16 of 16);
+      }
+   }
+}
+
 .tweet {
    margin: 0;
    padding: 1.5rem 0;
@@ -6,7 +19,7 @@
       color: #454444;
       font: {
          family: $font-copy;
-         weight: $font-weight-thin;
+         weight: $font-weight-light;
       }
       a {
          color: $color-blue;

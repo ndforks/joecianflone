@@ -18,7 +18,7 @@
    text-align: right;
 
    .wrapper {
-      height: 95%;
+      height: 100%;
       padding: 111px 32px 0 32px;
       position: fixed;
       width: 303px;
@@ -27,18 +27,26 @@
       }
    }
 }
+
 .main-content {
     align-self: stretch;
     flex: 1 1 80%;
     order: 2;
     padding: 18px 32px;
     .wrapper {
-       padding-left: 20%;
+       padding: 0 10% 0 20%;
+       max-width: 1600px;
+       @include media("<xlarge") {
+          padding: 0 5% 0 10%;
+       }
+       @include media("<large") {
+          padding: 0 2% 0 5%;
+       }
     }
 }
 
 footer {
-   bottom: 40px;
+   bottom: 20px;
    left: 45px;
    position: absolute;
    right: 33px;

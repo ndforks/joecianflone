@@ -9,4 +9,4 @@ public/assets/js/
 public/assets/css/
 public/assets/fonts/
 public/assets/images/
-resources/assets/js/templates.tpl
+resources/assets/js/*.tpl

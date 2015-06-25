@@ -11,7 +11,7 @@
  */
 $font-copy:       "Roboto", "Helvetica Neue", sans-serif;
 $font-logo:       "Patua One", Georgia, serif;
-$font-headlines:  "Patua One", "Helvetica Neue", sans-serif;
+$font-headlines:  "Roboto", "Helvetica Neue", sans-serif;
 
 // If you have the ability to use variables, damnit, use them.  The concept of
 // "bold" and "light" can mean different things to different fonts, by defining
@@ -39,3 +39,14 @@ $color-light-gray: #6f6e6e;
   gutters: .25,
   global-box-sizing: border-box,
 ));
+
+$breakpoints: (
+   'tiny': 320px,
+   'small-tiny': 480px,
+   'small': 640px,
+   'medium-small': 768px,
+   'medium': 980px,
+   'large': 1024px,
+   'xlarge': 1160px,
+   'xxlarge': 1280px
+);

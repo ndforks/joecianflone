@@ -39,6 +39,7 @@ h1, h2, h3, h4, h5, h6 {
    color: $color-light-gray;
    font: {
       family: $font-headlines;
+      weight: $font-weight-light;
    }
    letter-spacing: 0;
    margin: 0;
@@ -68,11 +69,16 @@ nav {
    }
 }
 article {
-   @include first() {
-      margin-top: 60px;
+   border-bottom: 1px solid #eee;
+   margin-top: 2em;
+   padding-bottom: 2em;
+   @include last() {
+      border: none;
    }
 }
-hr.rule {
+
+.rule {
+   display: none;
    border: 0;
    border-top: 1px solid #eee;
    margin-bottom: 25px;

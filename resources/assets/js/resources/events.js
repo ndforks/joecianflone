@@ -159,8 +159,6 @@ var Events = (function() {
       if (eo.bindEvent.indexOf("focus") === 0 || eo.bindEvent === "blur" || eo.bindEvent === "change" || eo.bindEvent === "select" || eo.bindEvent === "submit") {
          return Binder.asForm(eo);
       }
-
-
    };
 
    return {
@@ -195,8 +193,8 @@ var Events = (function() {
          eventObject.asEventName = Utils.generateEventName(eventObject.asEventName);
          eventObject.userData    = _.isUndefined(userData) ? {} : userData;
          eventObject.context     = _.isUndefined(context) ? window : context;
-         triggers.pub(eventObject);
 
+         triggers.pub(eventObject);
          if (_.isFunction(funcName) ||  _.isArray(funcName)) {
             triggers.sub(eventObject, funcName);
          }

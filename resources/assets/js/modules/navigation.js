@@ -35,8 +35,7 @@ App.Modules.Navigation = function () {
    return {
       init: function() { return this; },
       events: function() {
-         console.log("events");
-         Events.bind("click", options.toggler).to(toggleNav, this);
+         Events.bind("click", ".secondary").to(toggleNav, this);
 
          return this;
       }
