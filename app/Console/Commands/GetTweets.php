@@ -12,14 +12,14 @@ class GetTweets extends Command
    *
    * @var string
    */
-   protected $signature = 'cianflone:tweets';
+   protected $signature = 'cianflone:tweets {count=10}';
 
    /**
    * The console command description.
    *
    * @var string
    */
-   protected $description = 'This gets the last 10 tweets';
+   protected $description = 'This gets the last X number of tweets';
 
    /**
    * Create a new command instance.
@@ -38,7 +38,9 @@ class GetTweets extends Command
    */
    public function handle()
    {
-      $rawTweets = Twitter::getUserTimeline([['screen_name' => 'joecianflone', 'count' => 10]]);
+      $count = $this->argument("count");
+
+      $rawTweets = Twitter::getUserTimeline([['screen_name' => 'joecianflone', 'count' => $count]]);
       event(new GotSomeTweets($rawTweets));
    }
 }

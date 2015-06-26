@@ -12,14 +12,14 @@ class GetArticles extends Command
      *
      * @var string
      */
-    protected $signature = 'cianflone:articles';
+    protected $signature = 'cianflone:articles {count=10}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Gets the last 10 articles from the disk.';
+    protected $description = 'Gets the last X articles from the disk.';
 
     /**
      * Create a new command instance.
@@ -38,7 +38,7 @@ class GetArticles extends Command
      */
     public function handle()
     {
-        $files = Storage::disk('local')->files("resources/assets/markdown/articles");
+        $files = Storage::disk('dropbox')->files("articles");
         $markdownFiles = [];
 
         foreach ($files as $file) {

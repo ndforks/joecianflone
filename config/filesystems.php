@@ -80,6 +80,11 @@ return [
             'url_type'  => 'publicURL'
         ],
 
+        'dropbox' => [
+           'driver' => 'dropbox',
+           'accessToken' => getenv("DROPBOX_OAUTH_TOKEN"),
+           'clientIdentifier' => getenv("DROPBOX_API_SECRET"),
+        ]
     ],
 
 ];

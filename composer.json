@@ -10,7 +10,8 @@
         "league/commonmark": "^0.8.0@dev",
         "thujohn/twitter": "dev-master",
         "ramsey/uuid": "^3.0@dev",
-        "mnapoli/front-yaml": "dev-master"
+        "mnapoli/front-yaml": "dev-master",
+        "league/flysystem-dropbox": "^1.0@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
