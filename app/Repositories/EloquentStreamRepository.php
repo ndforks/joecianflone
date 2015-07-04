@@ -73,6 +73,12 @@ class EloquentStreamRepository implements StreamRepository {
       }
    }
 
+   public function saveCollectionToStream($collection) {
+      foreach ($collection as $item) {
+         $this->saveLatestToStream($item);
+      }
+   }
+
    /**
     * [updateStreamItem description]
     * @param  [type] $itemId  [description]

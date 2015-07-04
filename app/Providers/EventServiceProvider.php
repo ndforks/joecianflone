@@ -12,10 +12,10 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         'JoeCianflone\Events\GotSomeTweets' => [
-            'JoeCianflone\Listeners\TransformTweets',
+            'JoeCianflone\Listeners\SaveNewTweets',
         ],
         'JoeCianflone\Events\GotSomeArticles' => [
-            'JoeCianflone\Listeners\TransformArticles',
+            'JoeCianflone\Listeners\SaveNewArticles',
         ],
     ];
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ad8cfa5c975e802f30ccfd0103a4e10e",
+    "hash": "e68ff3f7dedd03a8d9d0dcff61d8ad7f",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -728,7 +728,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem-dropbox/zipball/2f464a6a80c0dcc2113a8cc636ca9d4a0fc26617",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-dropbox/zipball/96c37124590bef6277c0e68a12e2dc40e5f82baa",
                 "reference": "2f464a6a80c0dcc2113a8cc636ca9d4a0fc26617",
                 "shasum": ""
             },
@@ -764,6 +764,69 @@
             ],
             "description": "Flysystem adapter for Dropbox",
             "time": "2015-01-21 22:19:57"
+        },
+        {
+            "name": "league/fractal",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/fractal.git",
+                "reference": "246a9a219878777189a4cd143db64aa442fe9bee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/246a9a219878777189a4cd143db64aa442fe9bee",
+                "reference": "246a9a219878777189a4cd143db64aa442fe9bee",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "illuminate/contracts": "~5.0",
+                "mockery/mockery": "~0.9",
+                "pagerfanta/pagerfanta": "~1.0.0",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5",
+                "zendframework/zend-paginator": "~2.3"
+            },
+            "suggest": {
+                "illuminate/pagination": "The Illuminate Pagination component.",
+                "pagerfanta/pagerfanta": "Pagerfanta Paginator",
+                "zendframework/zend-paginator": "Zend Framework Paginator"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.13-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Fractal\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phil Sturgeon",
+                    "email": "me@philsturgeon.uk",
+                    "homepage": "http://philsturgeon.uk/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Handle the output of complex data structures ready for API output.",
+            "homepage": "http://fractal.thephpleague.com/",
+            "keywords": [
+                "api",
+                "json",
+                "league",
+                "rest"
+            ],
+            "time": "2015-06-02 01:40:30"
         },
         {
             "name": "mnapoli/front-yaml",
@@ -3420,7 +3483,8 @@
         "thujohn/twitter": 20,
         "ramsey/uuid": 20,
         "mnapoli/front-yaml": 20,
-        "league/flysystem-dropbox": 20
+        "league/flysystem-dropbox": 20,
+        "league/fractal": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
