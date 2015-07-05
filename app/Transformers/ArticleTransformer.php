@@ -11,8 +11,6 @@ class ArticleTransformer
 {
    public function transform($articles)
    {
-
-
       return array_map(function($article) {
          $parser = new Parser();
          $file = Storage::disk("dropbox")->get($article);

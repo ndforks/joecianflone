@@ -39,13 +39,9 @@ class GetArticles extends Command
     public function handle()
     {
         $files = Storage::disk('dropbox')->files("articles");
-        $markdownFiles = [];
-
-        foreach ($files as $file) {
-           if (ends_with($file, '.md')) {
-              $markdownFiles[] = $file;
-           }
-        }
+        $markdownFiles = array_filter($files, function($file) {
+           return ends_with($file, '.md');
+        });
 
         event(new GotSomeArticles($markdownFiles));
     }

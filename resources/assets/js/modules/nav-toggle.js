@@ -1,5 +1,6 @@
 App.Modules = App.Modules || {};
-App.Modules.Navigation = function () {
+
+App.Modules.NavToggle = function () {
    "use strict";
 
    var options = {
@@ -35,12 +36,11 @@ App.Modules.Navigation = function () {
    return {
       init: function() { return this; },
       events: function() {
-         Events.bind("click", ".secondary").to(toggleNav, this);
+         Events.bind("click", options.toggler).to(toggleNav, this);
 
          return this;
       }
    };
 
 }();
-
 

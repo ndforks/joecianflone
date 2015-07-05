@@ -24,7 +24,6 @@ class HomeController extends Controller
        $pinned = $this->stream->getPinnedStreamItem();
        $stream = $this->stream->getFullStream(10);
 
-
        return view('pages.home', compact('stream', 'pinned'));
     }
 

@@ -165,7 +165,7 @@ gulp.task('js', ['bower','handlebars'], function() {
        .pipe(sourcemaps.init())
           .pipe(concat("app.min.js"))
           .pipe(gulpif(yargs.production, uglify()))
-       .pipe(sourcemaps.write("maps"))
+       .pipe(sourcemaps.write())
        .pipe(gulp.dest(config.dest.js))
        .pipe(livereload());
 });
@@ -183,7 +183,7 @@ gulp.task('sass', ['bower'], function () {
              cascade: false,
              remove: true
            }))
-       .pipe(sourcemaps.write("maps"))
+       .pipe(sourcemaps.write())
        .pipe(gulp.dest(config.dest.css))
        .pipe(livereload());
 });

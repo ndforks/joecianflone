@@ -2,7 +2,9 @@
 
 @section('main')
 
-   @include("fragments.stream.pinned-summary")
+   @if (! is_null($pinned))
+      @include("fragments.stream.pinned-summary")
+   @endif
 
    @foreach ($stream as $element)
 

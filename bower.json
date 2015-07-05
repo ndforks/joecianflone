@@ -19,8 +19,7 @@
     "momentjs": "*",
     "html5-boilerplate": "*",
     "livestampjs": "*",
-    "html5-polyfills": "*",
-    "prism": "*"
+    "html5-polyfills": "*"
   },
   "license": "MIT",
   "ignore": [

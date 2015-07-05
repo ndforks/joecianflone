@@ -1,11 +1,11 @@
-            <a href="#" class="menu-toggler js-menu-toggler" title="Toggle Sidebar">
-         <span class="menu-toggler__bars fa fa-bars"></span>
-         <span class="menu-toggler__text">nav</span>
-      </a>
+
 <section class="secondary-content js-secondary-content">
 
    <div class="wrapper js-wrapper">
-
+      <a href="#" class="menu-toggler js-menu-toggler" title="Toggle Sidebar">
+         <span class="menu-toggler__bars fa fa-bars"></span>
+         <span class="menu-toggler__text">nav</span>
+      </a>
       <div class="js-toggle-hide">
          <nav>
             <ul class="navigation-list">

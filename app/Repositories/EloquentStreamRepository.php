@@ -25,7 +25,7 @@ class EloquentStreamRepository implements StreamRepository {
     */
    public function getFullStream($count = 10, $offset = 0)
    {
-      return json_decode($this->stream->skip($offset)->take($count)->orderBy('item_created_at', 'desc')->get()->toJson());
+      return $this->getCollectionOrNull($this->stream->skip($offset)->take($count)->orderBy('item_created_at', 'desc')->get());
    }
 
    /**
@@ -37,7 +37,7 @@ class EloquentStreamRepository implements StreamRepository {
     */
    public function getStreamType($type, $count = 10, $offset = 0)
    {
-      return json_decode($this->stream->where("type", $type)->skip($offset)->take($count)->orderBy('item_created_at', 'desc')->get()->toJson());
+      return $this->getCollectionOrNull($this->stream->where("type", $type)->skip($offset)->take($count)->orderBy('item_created_at', 'desc')->get());
    }
 
    /**
@@ -46,7 +46,7 @@ class EloquentStreamRepository implements StreamRepository {
     */
    public function getPinnedStreamItem()
    {
-      return json_decode($this->stream->where("is_pinned", true)->first()->toJson());
+      return $this->getItemOrNull($this->stream->where("is_pinned", true)->first());
    }
 
    /**
@@ -56,7 +56,7 @@ class EloquentStreamRepository implements StreamRepository {
     */
    public function getArticleBySlug($slug)
    {
-      return json_decode($this->stream->where("slug", $slug)->first()->toJson());
+      return $this->getItemOrNull($this->stream->where("slug", $slug)->first());
    }
 
    /**
@@ -90,4 +90,13 @@ class EloquentStreamRepository implements StreamRepository {
 
    }
 
+   private function getItemOrNull($query)
+   {
+      return (is_null($query)) ? null : json_decode($query->toJson());
+   }
+
+   private function getCollectionOrNull($query)
+   {
+      return ($query->count() <= 0) ? null : json_decode($query->toJson());
+   }
 }

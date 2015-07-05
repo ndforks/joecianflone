@@ -109,19 +109,20 @@ var Events = (function() {
    "use strict";
 
    var eventObject = {
-      context:          "",
-      keyPress:         "",
-      selector:         "",
-      whereKey:         "",
-      userData:         "",
-      bindEvent:        "",
-      whereValue:       "",
-      asEventName:      "",
-      bindEventContext: ""
+      context:          undefined,
+      keyPress:         undefined,
+      selector:         undefined,
+      whereKey:         undefined,
+      userData:         undefined,
+      bindEvent:        undefined,
+      whereValue:       undefined,
+      asEventName:      undefined,
+      bindEventContext: undefined
    };
 
    var triggers = {
       pub: function(eo) {
+         console.log(eo.whereKey);
          if (_.isUndefined(eo.whereKey) || $(eo.whereKey).hasClass(eo.whereValue)) {
             bindEventAs(eo);
          }
@@ -153,6 +154,7 @@ var Events = (function() {
       }
 
       if (eo.bindEvent.indexOf("mouse") === 0 || eo.bindEvent === "hover" || eo.bindEvent === "click" || eo.bindEvent === "dblclick") {
+         console.log(eo);
          return Binder.asMouse(eo);
       }
 
@@ -193,8 +195,8 @@ var Events = (function() {
          eventObject.asEventName = Utils.generateEventName(eventObject.asEventName);
          eventObject.userData    = _.isUndefined(userData) ? {} : userData;
          eventObject.context     = _.isUndefined(context) ? window : context;
-
          triggers.pub(eventObject);
+
          if (_.isFunction(funcName) ||  _.isArray(funcName)) {
             triggers.sub(eventObject, funcName);
          }
