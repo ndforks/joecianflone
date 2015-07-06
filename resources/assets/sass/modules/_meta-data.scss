@@ -2,9 +2,15 @@
 .meta-data {
    @include container;
    &--full {
+      margin: 1em 0;
       width: 100%;
+   }
+
+   &--inside {
+      @include span(last 12 of 16);
       margin: 1em 0;
    }
+
    &--left {
       @include span(10 of 16);
       margin: 1em 0;

@@ -27,7 +27,7 @@ App.Modules.NavToggle = function () {
                .css({"flex": "0 0 50px"})
                .find(options.wrapper).css({
                   "width": "38px",
-                  "padding": "0"
+                  "padding": "10px 4px 0 0"
                });
 
       return false;

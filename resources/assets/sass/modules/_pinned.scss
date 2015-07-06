@@ -5,12 +5,11 @@
       font-weight: $font-weight-ultra-bold;
    }
    &__header {
-
       h1 {
-         @include font-size(36px);
+         @include font-size(39px);
       }
       h2 {
-         @include font-size(28px);
+         @include font-size(32px);
       }
    }
    &__body {

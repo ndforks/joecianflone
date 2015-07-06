@@ -19,12 +19,9 @@
 
    .wrapper {
       height: 100%;
-      padding: 111px 32px 0 32px;
+      padding: 10px 32px 0 32px;
       position: fixed;
       width: 303px;
-      @media screen and ( max-height: 900px )  {
-         padding-top: 10px;
-      }
    }
 }
 
@@ -32,9 +29,9 @@
     align-self: stretch;
     flex: 1 1 80%;
     order: 2;
-    padding: 18px 32px;
+    padding: 18px 32px 18px 0;
     .wrapper {
-       padding: 0 10% 0 20%;
+       padding: 0 10% 0 15%;
        max-width: 1600px;
        @include media("<xlarge") {
           padding: 0 5% 0 10%;
