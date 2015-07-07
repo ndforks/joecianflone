@@ -6,7 +6,7 @@
     flex-wrap: none;
     justify-content: center;
     min-height: 100%;
-    overflow: hidden;
+    overflow:
 }
 
 .secondary-content {
@@ -33,13 +33,13 @@
     order: 2;
     padding: 18px 32px 18px 0;
     .wrapper {
-       padding: 0 10% 0 15%;
+       padding: 0 7% 0 15%;
        max-width: 1600px;
        @include media("<xlarge") {
-          padding: 0 5% 0 10%;
+          padding: 0 3% 0 10%;
        }
        @include media("<large") {
-          padding: 0 2% 0 5%;
+          padding: 0 1% 0 5%;
        }
     }
 }

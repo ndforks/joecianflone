@@ -45,6 +45,10 @@ h1, h2, h3, h4, h5, h6 {
    margin: 0;
 }
 
+b, strong {
+   font-weight: $font-weight-normal;
+}
+
 p, ul, ol {
    font-size: inherit;
 }
@@ -68,6 +72,7 @@ nav {
       }
    }
 }
+
 article {
    border-bottom: 1px solid #eee;
    margin-top: 2em;
