@@ -7,24 +7,24 @@
       <div class="js-toggle-hide">
          <nav>
             <ul class="navigation-list">
-               <li class="navigation-list__item is-selected"><a href="#">home</a>
+               <li class="navigation-list__item is-selected"><a href="/">home</a>
                   <ul class="navigation-list--secondary">
-                     <li class="navigation-list__item"><a href="#">#stream</a></li>
-                     <li class="navigation-list__item"><a href="#">#tweets</a></li>
-                     <li class="navigation-list__item"><a href="#">#github</a></li>
-                     <li class="navigation-list__item"><a href="#">#videos</a></li>
-                     <li class="navigation-list__item"><a href="#">#articles</a></li>
+                     <li class="navigation-list__item"><a href="/stream/all">#stream</a></li>
+                     <li class="navigation-list__item"><a href="/stream/tweets">#tweets</a></li>
+                     <li class="navigation-list__item"><a href="/stream/github">#github</a></li>
+                     <li class="navigation-list__item"><a href="/stream/videos">#videos</a></li>
+                     <li class="navigation-list__item"><a href="/stream/articles">#articles</a></li>
                   </ul>
                </li>
-               <li class="navigation-list__item"><a href="#">about</a></li>
-               <li class="navigation-list__item"><a href="#">feed</a></li>
+               <li class="navigation-list__item"><a href="/about">about</a></li>
+               <li class="navigation-list__item"><a href="/feed">feed</a></li>
             </ul>
             <hr class="rule--nav">
             <ul class="navigation-list">
                <li class="navigation-list__item"><a href="#">Projects &amp; Contributions</a>
                   <ul class="navigation-list--secondary">
-                     <li class="navigation-list__item"><a href="#">heisenberg</a></li>
-                     <li class="navigation-list__item"><a href="#">laravel-elixir-sass-compass</a></li>
+                     <li class="navigation-list__item"><a href="/projects/heisenberg">heisenberg</a></li>
+                     <li class="navigation-list__item"><a href="/projects/laravel-elixir-sass-compass">laravel-elixir-sass-compass</a></li>
                   </ul>
                </li>
             </ul>
