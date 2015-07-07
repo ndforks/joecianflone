@@ -2,9 +2,15 @@
    @include container;
    &__visual {
       @include span(4 of 16);
+      @include media("<small") {
+         @include span(16 of 16);
+      }
    }
    &__text {
       @include span(last 12 of 16);
+      @include media("<small") {
+         @include span(16 of 16);
+      }
       &--full {
          @include span(16 of 16);
       }
@@ -20,6 +26,9 @@
       font: {
          family: $font-copy;
          weight: $font-weight-light;
+      }
+      @include media("<small") {
+         @include font-size(23px);
       }
       a {
          color: $color-blue;

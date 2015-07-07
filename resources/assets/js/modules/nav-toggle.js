@@ -33,9 +33,21 @@ App.Modules.NavToggle = function () {
       return false;
    };
 
+   var checkPageWidth = function(data) {
+      var container = $(options.container);
+      if (! container.hasClass('js-container-closed')) {
+         var pageWidth = parseInt($("body").outerWidth(true));
+         if (pageWidth <= 980) {
+            $(options.toggler).trigger("click");
+         }
+      }
+   };
+
    return {
       init: function() { return this; },
       events: function() {
+         Events.bind("load").to(checkPageWidth, this);
+         Events.bind("resize").to(checkPageWidth, this);
          Events.bind("click", options.toggler).to(toggleNav, this);
 
          return this;

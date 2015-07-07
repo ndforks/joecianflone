@@ -9,6 +9,9 @@
    &--inside {
       @include span(last 12 of 16);
       margin: 1em 0;
+      @include media("<small") {
+         @include span(16 of 16);
+      }
    }
 
    &--left {
@@ -34,7 +37,9 @@
       display: inline-block;
       padding: 0 5px;
       font-weight: $font-weight-light;
-
+      @include media("<small") {
+         @include font-size(12px);
+      }
       @include first() {
          padding-left: 0;
       }

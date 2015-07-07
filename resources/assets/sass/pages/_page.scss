@@ -6,6 +6,7 @@
     flex-wrap: none;
     justify-content: center;
     min-height: 100%;
+    overflow: hidden;
 }
 
 .secondary-content {
@@ -21,6 +22,7 @@
       height: 100%;
       padding: 10px 32px 0 32px;
       position: fixed;
+      overflow-y: scroll;
       width: 303px;
    }
 }
