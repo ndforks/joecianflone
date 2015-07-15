@@ -12,7 +12,7 @@ class GetTweets extends Command
    *
    * @var string
    */
-   protected $signature = 'cianflone:tweets {count=10}';
+   protected $signature = 'stream:tweets {count=10}';
 
    /**
    * The console command description.

@@ -8,12 +8,20 @@
          margin-bottom: 40px;
          text-align: center;
       }
+
       a  {
          @include font-size(55px);
          color: $color-gray;
          text-decoration: none;
          @include media("<small") {
             @include font-size(45px);
+         }
+         @include media("<small-tiny") {
+            @include font-size(40px);
+         }
+         @include media("<tiny") {
+            @include font-size(30px);
+            letter-spacing: 0;
          }
       }
    }

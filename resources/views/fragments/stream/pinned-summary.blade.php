@@ -1,6 +1,6 @@
-   <article class="pinned">
-      <header class="pinned__header">
-         <p class="pinned__text-title">FEATURED</p>
+   <article class="post--featured">
+      <header class="post__header">
+         <p class="post__text-title"><strong>FEATURED</strong></p>
          <h1>{{ $pinned->content->headline }}</h1>
          <div class="meta-data--full">
             <ul class="meta-list">
@@ -10,8 +10,8 @@
             </ul>
          </div>
       </header>
-      <section class="pinned__body">
+      <section class="post__body">
          {!! $pinned->content->summary !!}
-         <p class="pinned__read-more"><a href="/article/{{ $pinned->slug }}" title="">Read More...</a></p>
+         <p class="post__read-more"><a href="/article/{{ $pinned->slug }}" title="">Read More...</a></p>
       </section>
    </article>

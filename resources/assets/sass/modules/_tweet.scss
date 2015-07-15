@@ -2,8 +2,10 @@
    @include container;
    &__visual {
       @include span(4 of 16);
+      padding: 0 1em 0 0;
       @include media("<small") {
          @include span(16 of 16);
+         margin-bottom: 2em;
       }
    }
    &__text {
@@ -29,6 +31,10 @@
       }
       @include media("<small") {
          @include font-size(23px);
+      }
+      @include media("<small-tiny") {
+         @include font-size(18px);
+         line-height: 1.4;
       }
       a {
          color: $color-blue;

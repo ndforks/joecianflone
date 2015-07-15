@@ -9,7 +9,7 @@ html {
    font: {
       family: $font-copy;
       size: $font-size-base;
-      weight: $font-weight-thin;
+      weight: $font-weight-light;
    }
    letter-spacing: $letter-spacing;
    height: 100%;
@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
    color: $color-light-gray;
    font: {
       family: $font-headlines;
-      weight: $font-weight-light;
+      weight: $font-weight-normal;
    }
    letter-spacing: 0;
    margin: 0;

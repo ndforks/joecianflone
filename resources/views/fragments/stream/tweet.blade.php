@@ -9,7 +9,7 @@
                   @endif
                @endforeach
             </div>
-         @endif;
+         @endif
          <div class={!! isset($element->content->entities->media) ? "mediabox__text" : "mediabox__text--full" !!}>
             <p class="tweet__text">{!! Twitter::linkify($element->content->text) !!}</p>
          </div>

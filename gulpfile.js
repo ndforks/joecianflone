@@ -111,13 +111,13 @@ gulp.task('cleaner', function () {
 });
 
 // Copy assets to public folder ...............................................
-gulp.task('copy', ['bower'], function () {
+gulp.task('copy', function () {
    gulp.src([config.src.bower +"fontawesome/fonts/fontawesome-webfont.*"])
       .pipe(gulp.dest(config.dest.fonts));
 });
 
 // Minify images ..............................................................
-gulp.task('imagemin', ['bower'], function () {
+gulp.task('imagemin', function () {
     return gulp.src(config.src.imgs + '**/*.*')
         .pipe(plumber({errorHandler: notify.onError("Imagemin Error:\n<%= error.message %>")}))
         .pipe(imagemin({
@@ -145,7 +145,7 @@ gulp.task('handlebars', function () {
 });
 
 // Do everything to JavaScript ................................................
-gulp.task('js', ['bower','handlebars'], function() {
+gulp.task('js', ['handlebars'], function() {
    gulp.src(scripts.modernizr)
        .pipe(plumber({errorHandler: notify.onError("JS Error:\n<%= error.message %>")}))
        .pipe(concat("modernizr.min.js"))
@@ -171,7 +171,7 @@ gulp.task('js', ['bower','handlebars'], function() {
 });
 
 // Compile the Sass ...........................................................
-gulp.task('sass', ['bower'], function () {
+gulp.task('sass', function () {
    gulp.src(config.src.sass + '*.scss')
        .pipe(plumber({errorHandler: notify.onError("Sass Error:\n<%= error.message %>")}))
        .pipe(sourcemaps.init())
@@ -199,8 +199,8 @@ gulp.task('watch', function () {
    gulp.watch(config.src.imgs + '**/*.*',    ['imagemin']);
 });
 
-gulp.task('clean',   ['cleaner']);
-gulp.task('compile', ['bower', 'copy', 'js', 'sass', 'imagemin']);
-gulp.task('default', ['bower', 'copy', 'js', 'sass', 'imagemin','watch']);
+gulp.task('boot',   ['cleaner', 'bower', 'copy']);
+gulp.task('compile', ['boot', 'js', 'sass', 'imagemin']);
+gulp.task('default', ['boot', 'js', 'sass', 'imagemin','watch']);
 
 

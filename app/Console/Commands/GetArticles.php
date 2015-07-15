@@ -12,7 +12,7 @@ class GetArticles extends Command
      *
      * @var string
      */
-    protected $signature = 'cianflone:articles {count=10}';
+    protected $signature = 'stream:articles {count=10}';
 
     /**
      * The console command description.
