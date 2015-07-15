@@ -3,6 +3,8 @@ namespace JoeCianflone\Repositories;
 
 use JoeCianflone\Stream;
 use JoeCianflone\Contracts\StreamRepository;
+use JoeCianflone\Exceptions\NoArticleFoundException;
+use JoeCianflone\Exceptions\NoStreamItemsFoundException;
 
 class EloquentStreamRepository implements StreamRepository {
 
@@ -24,12 +26,18 @@ class EloquentStreamRepository implements StreamRepository {
 
    public function getStreamType($type, $count = 10, $offset = 0)
    {
-      return $this->stream
-                  ->where("type", $type)
-                  ->skip($offset)
-                  ->take($count)
-                  ->orderBy('item_created_at', 'desc')
-                  ->get()->toJson();
+      $stream = $this->stream
+                     ->where("type", $type)
+                     ->skip($offset)
+                     ->take($count)
+                     ->orderBy('item_created_at', 'desc')
+                     ->get();
+
+      if ($stream->count() <= 0) {
+         throw new NoStreamItemsFoundException();
+      }
+
+      return $stream->toJson();
    }
 
    public function getPinnedStreamItem()
@@ -41,9 +49,16 @@ class EloquentStreamRepository implements StreamRepository {
 
    public function getArticleBySlug($slug)
    {
-      return $this->stream
-                  ->where("slug", $slug)
-                  ->first()->toJson();
+      $article = $this->stream
+                      ->where("slug", $slug)
+                      ->first();
+
+      if (is_null($article)) {
+         throw new NoArticleFoundException();
+      }
+
+      return $article->toJson();
+
    }
 
    public function saveLatestToStream($item)

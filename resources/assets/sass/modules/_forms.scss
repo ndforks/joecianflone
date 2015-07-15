@@ -1,0 +1,29 @@
+.form {
+   &__input {
+      @include font-size(18px);
+      font-weight: 600;
+      display: inline-block;
+      padding: 10px 0;
+      width: 100%;
+
+      input, textarea {
+         @include font-size(16px);
+         border: 1px solid #ddd;
+         border-radius: 5px;
+         padding: 5px;
+         margin: 5px 0;
+         font-weight: 400;
+         width: 100%;
+      }
+   }
+   &__button {
+      @include font-size(14px);
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: $color-gray;
+      color: $color-white;
+      padding: 5px 15px;
+      margin: 5px 0;
+      font-weight: 400;
+   }
+}

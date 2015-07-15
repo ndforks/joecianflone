@@ -4,6 +4,8 @@ namespace JoeCianflone\Http\Controllers;
 
 use JoeCianflone\Contracts\StreamRepository;
 use JoeCianflone\Http\Controllers\Controller;
+use JoeCianflone\Exceptions\NoArticleFoundException;
+
 
 class ArticleController extends Controller
 {
@@ -14,9 +16,13 @@ class ArticleController extends Controller
       $this->stream = $stream;
    }
 
-   public function article($slug)
+   public function article($slug = null)
    {
-      $element = json_decode($this->stream->getArticleBySlug($slug));
+      try {
+         $element = json_decode($this->stream->getArticleBySlug($slug));
+      } catch(NoArticleFoundException $e) {
+         return abort(404);
+      }
 
       return view('pages.article', compact('element'));
    }

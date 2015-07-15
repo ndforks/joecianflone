@@ -3,6 +3,7 @@ namespace JoeCianflone\Http\Controllers;
 
 use JoeCianflone\Contracts\StreamRepository;
 use JoeCianflone\Http\Controllers\Controller;
+use JoeCianflone\Exceptions\NoStreamItemsFoundException;
 
 class StreamController extends Controller
 {
@@ -27,7 +28,12 @@ class StreamController extends Controller
          return redirect('/');
       }
 
-      $stream = json_decode($this->stream->getStreamType($type));
+      try {
+         $stream = json_decode($this->stream->getStreamType($type));
+      } catch (NoStreamItemsFoundException $e) {
+         return redirect('/');
+      }
+
       return view('pages.stream', compact('stream'));
    }
 
