@@ -6,7 +6,7 @@
       @include("fragments.stream.pinned-summary")
    @endif
 
-   @foreach ($stream as $element)
+   @foreach ($stream->data as $element)
 
       @if ($element->type === "twitter")
          @include("fragments.stream.tweet")
@@ -18,5 +18,7 @@
 
       <hr class="rule">
    @endforeach
+
+   @include("fragments.stream.pagination")
 
 @stop

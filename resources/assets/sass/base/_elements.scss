@@ -9,7 +9,7 @@ html {
    font: {
       family: $font-copy;
       size: $font-size-base;
-      weight: $font-weight-light;
+      weight: getFontWeight(light);
    }
    letter-spacing: $letter-spacing;
    height: 100%;
@@ -36,17 +36,17 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-   color: $color-light-gray;
+   color: getColor(dove-gray);
    font: {
       family: $font-headlines;
-      weight: $font-weight-normal;
+      weight: getFontWeight(regular);
    }
    letter-spacing: 0;
    margin: 0;
 }
 
 b, strong {
-   font-weight: $font-weight-normal;
+   font-weight: getFontWeight(regular);
 }
 
 p, ul, ol {

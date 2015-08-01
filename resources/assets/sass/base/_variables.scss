@@ -13,26 +13,30 @@ $font-copy:       "Roboto", "Helvetica Neue", sans-serif;
 $font-logo:       "Patua One", Georgia, serif;
 $font-headlines:  "Roboto", "Helvetica Neue", sans-serif;
 
-// If you have the ability to use variables, damnit, use them.  The concept of
-// "bold" and "light" can mean different things to different fonts, by defining
-// variables it's easier to change later on
-$font-weight-ultra-bold:  900;
-$font-weight-normal:      400;
-$font-weight-light:       300;
-$font-weight-thin:        100;
-
 $font-size-base: 62.5%;
+
 $letter-spacing: 0em;
 
-// Raw colors
-$color-gray:       #454444;
-$color-blue:       #68aad5;
-$color-white:      #fff;
-$color-silver:     #a6a5a5;
-$color-dark-gray:  #444;
-$color-off-white:  #e8e8e8;
-$color-light-gray: #6f6e6e;
+$fontWeights: (
+   ultra-thin: 100,
+   thin:       200,
+   light:      300,
+   regular:    400,
+   strong:     500,
+   stronger:   600,
+   bold:       700,
+   bolder:     800,
+   ultra-bold: 900
+);
 
+$colors: (
+   white:          #fff,
+   charcoal:       #444,
+   mercury:        #e8e8e8,
+   dove-gray:      #6f6e6e,
+   picton-blue:    #68aad5,
+   silver-chalice: #a6a5a5
+);
 
 @include layout((
   columns: 16,
@@ -42,12 +46,25 @@ $color-light-gray: #6f6e6e;
 ));
 
 $breakpoints: (
-   'tiny': 320px,
-   'small-tiny': 480px,
-   'small': 640px,
-   'medium-small': 768px,
-   'medium': 980px,
-   'large': 1024px,
-   'xlarge': 1160px,
-   'xxlarge': 1280px
+   'tiny':         320px,
+// 'bitty->tiny':
+   'bitty':        480px,
+// 'small->bitty':
+   'small':        640px,
+// 'bantam->small:
+   'bantam':       768px,
+// 'medium->bantam':
+   'medium':       980px,
+// 'large->medium':
+   'large':        1024px,
+// 'xlarge->large':
+   'xlarge':       1160px,
+// 'xxlarge->xlarge':
+   'xxlarge':      1280px,
+// 'jumbo->xxlarge':
+   'jumbo':        1440px,
+// 'hulking->jumbo':
+   'hulking':      1600px,
+// 'titanic->hulking':
+   'titanic':      1920px
 );

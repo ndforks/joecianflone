@@ -15,23 +15,19 @@ class EloquentStreamRepository implements StreamRepository {
       $this->stream = $stream;
    }
 
-   public function getFullStream($count = 10, $offset = 0)
+   public function getFullStream()
    {
       return $this->stream
-                  ->skip($offset)
-                  ->take($count)
                   ->orderBy('item_created_at', 'desc')
-                  ->get()->toJson();
+                  ->paginate(20)->toJson();
    }
 
-   public function getStreamType($type, $count = 10, $offset = 0)
+   public function getStreamType($type)
    {
       $stream = $this->stream
                      ->where("type", $type)
-                     ->skip($offset)
-                     ->take($count)
                      ->orderBy('item_created_at', 'desc')
-                     ->get();
+                     ->paginate(20);
 
       if ($stream->count() <= 0) {
          throw new NoStreamItemsFoundException();

@@ -1,6 +1,5 @@
    <article class="post--featured">
       <header class="post__header">
-         <p class="post__text-title">Featured</p>
          <h1>{{ $pinned->content->headline }}</h1>
          <div class="meta-data--full">
             <ul class="meta-list">

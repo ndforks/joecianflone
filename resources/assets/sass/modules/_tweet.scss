@@ -24,20 +24,20 @@
    padding: 1.5rem 0;
    &__text {
       @include font-size(28px);
-      color: #454444;
+      color: getColor(charcoal);
       font: {
          family: $font-copy;
-         weight: $font-weight-light;
+         weight: getFontWeight(light);
       }
       @include media("<small") {
          @include font-size(23px);
       }
-      @include media("<small-tiny") {
+      @include media("<bitty") {
          @include font-size(18px);
          line-height: 1.4;
       }
       a {
-         color: $color-blue;
+         color: getColor(picton-blue);
          text-decoration: none;
       }
    }

@@ -12,14 +12,14 @@
 
       a  {
          @include font-size(55px);
-         color: $color-gray;
+         color: getColor(charcoal);
          text-decoration: none;
 
          @include media("<small") {
             @include font-size(45px);
          }
 
-         @include media("<small-tiny") {
+         @include media("<bitty") {
             @include font-size(40px);
          }
 

@@ -10,10 +10,10 @@
                <li class="navigation-list__item is-selected"><a href="/">home</a>
                   <ul class="navigation-list--secondary">
                      <li class="navigation-list__item"><a href="/stream/all">#stream</a></li>
-                     <li class="navigation-list__item"><a href="/stream/tweets">#tweets</a></li>
+                     <li class="navigation-list__item"><a href="/stream/twitter">#tweets</a></li>
                      <li class="navigation-list__item"><a href="/stream/github">#github</a></li>
                      <li class="navigation-list__item"><a href="/stream/videos">#videos</a></li>
-                     <li class="navigation-list__item"><a href="/stream/articles">#articles</a></li>
+                     <li class="navigation-list__item"><a href="/stream/article">#articles</a></li>
                   </ul>
                </li>
                <li class="navigation-list__item"><a href="/about">about</a></li>

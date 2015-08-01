@@ -1,8 +1,8 @@
 @extends ('layouts.master')
 
 @section('main')
-   <h3 class="" style="text-transform: uppercase;">{{$stream[0]->type}}</h3>
-   @foreach ($stream as $element)
+   <h3 class="type-headline">{{$stream->data[0]->type}}</h3>
+   @foreach ($stream->data as $element)
 
       @if ($element->type === "twitter")
          @include("fragments.stream.tweet")
@@ -13,5 +13,4 @@
       @endif
 
    @endforeach
-
 @stop

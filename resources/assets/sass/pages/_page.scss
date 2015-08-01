@@ -11,8 +11,8 @@
 
 .secondary-content {
    align-self: stretch;
-   background: $color-gray;
-   color: $color-white;
+   background: getColor(charcoal);
+   color: getColor(white);
    flex: 0 0 303px;
    order: 1;
    position: relative;
@@ -51,7 +51,7 @@ footer {
    right: 33px;
    p {
       @include font-size(9px);
-      font-weight: $font-weight-thin;
+      font-weight: getFontWeight(thin);
       padding-bottom: 10px;
    }
    @media screen and ( max-height: 900px )  {
