@@ -12,7 +12,7 @@
          border-radius: 5px;
          padding: 5px;
          margin: 5px 0;
-         font-weight: getFontWeight(regular);
+         font-weight: getWeight(regular);
          width: 100%;
       }
    }
@@ -24,6 +24,6 @@
       color: getColor(white);
       padding: 5px 15px;
       margin: 5px 0;
-      font-weight: getFontWeight(regular);
+      font-weight: getWeight(regular);
    }
 }

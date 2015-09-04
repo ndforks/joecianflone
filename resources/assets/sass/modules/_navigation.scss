@@ -24,7 +24,7 @@
 .navigation-list {
    &__item {
       @include font-size(31px);
-      font-weight: getFontWeight(ultra-bold);
+      font-weight: getWeight(ultra-bold);
       line-height: 1.1;
       padding-bottom: 8px;
       @media screen and ( max-height: 700px )  {
@@ -51,7 +51,7 @@
       padding-top: 6px;
       .navigation-list__item {
          @include font-size(16px);
-         font-weight: getFontWeight(regular);
+         font-weight: getWeight(regular);
          padding-bottom: 9px;
          @media screen and ( max-height: 700px )  {
             @include font-size(14px);

@@ -5,24 +5,25 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    /**
-     * The Artisan commands provided by your application.
-     *
-     * @var array
-     */
-    protected $commands = [
-        'JoeCianflone\Console\Commands\GetTweets',
-        'JoeCianflone\Console\Commands\GetArticles',
-    ];
+   /**
+   * The Artisan commands provided by your application.
+   *
+   * @var array
+   */
+   protected $commands = [
+      'JoeCianflone\Console\Commands\GetTweets',
+      'JoeCianflone\Console\Commands\GetArticles',
+   ];
 
-    /**
-     * Define the application's command schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
-     */
-    protected function schedule(Schedule $schedule)
-    {
-
-    }
+   /**
+   * Define the application's command schedule.
+   *
+   * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+   * @return void
+   */
+   protected function schedule(Schedule $schedule)
+   {
+      $schedule->command('stream:tweets')->hourly();
+      $schedule->command('stream:articles')->dailyAt('9:00');
+   }
 }

@@ -28,10 +28,7 @@
 <script src="/assets/js/modernizr.min.js"></script>
 
 <!-- import some Google fonts...loading them this way means no flash of unstyled fonts -->
-<script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
-<script>
-   WebFont.load({google: { families: ['Roboto:900,900italic,400italic,100,300,100italic,300italic,400:latin', 'Patua+One::latin'] }});
-</script>
+
 
 <!-- loading up our css -->
 <link rel="stylesheet" type="text/css" href="/assets/css/application.css">

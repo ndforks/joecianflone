@@ -14,7 +14,7 @@
     @return null;
 }
 
-@function zindex($increment: 1) {
+@function getZIndex($increment: 1) {
    @return $currentZIndex + $increment;
 }
 
@@ -26,7 +26,10 @@
    @return getBy($name, $colors);
 }
 
-@function getFontWeight($size) {
-   @return getBy($size, $fontWeights);
+@function getWeight($size) {
+   @return getBy($size, $font-weights);
 }
 
+@function getStack($setting) {
+   @return getBy($setting, $stack-settings);
+}

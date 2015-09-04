@@ -26,8 +26,8 @@
       @include font-size(28px);
       color: getColor(charcoal);
       font: {
-         family: $font-copy;
-         weight: getFontWeight(light);
+         family: getStack(serif);
+         weight: getWeight(light);
       }
       @include media("<small") {
          @include font-size(23px);

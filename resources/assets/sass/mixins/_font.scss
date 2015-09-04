@@ -81,14 +81,4 @@
     }
 }
 
-@mixin font($size, $line-height: null, $weight: null) {
-   @include font-size($size);
 
-   @if ($line-height != null) {
-      line-height: $line-height;
-   }
-
-   @if ($weight != null) {
-      font-weight: $weight;
-   }
-}

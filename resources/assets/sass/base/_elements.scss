@@ -7,11 +7,12 @@
 html {
    box-sizing: border-box;
    font: {
-      family: $font-copy;
-      size: $font-size-base;
-      weight: getFontWeight(light);
+      family: getStack(serif);
+      size: getStack(base-size);
+      weight: getWeight(light);
    }
-   letter-spacing: $letter-spacing;
+   letter-spacing: getStack(letter-spacing);
+   line-height: getStack(line-height);
    height: 100%;
 }
 
@@ -38,15 +39,15 @@ img {
 h1, h2, h3, h4, h5, h6 {
    color: getColor(dove-gray);
    font: {
-      family: $font-headlines;
-      weight: getFontWeight(regular);
+      family: getStack(serif);
+      weight: getWeight(regular);
    }
    letter-spacing: 0;
    margin: 0;
 }
 
 b, strong {
-   font-weight: getFontWeight(regular);
+   font-weight: getWeight(regular);
 }
 
 p, ul, ol {
@@ -74,7 +75,7 @@ nav {
 }
 
 article {
-   border-bottom: 1px solid #eee;
+   border-bottom: 1px solid getColor(gallery);
    margin-top: 2em;
    padding-bottom: 2em;
    @include last() {
@@ -85,14 +86,14 @@ article {
 .rule {
    display: none;
    border: 0;
-   border-top: 1px solid #eee;
+   border-top: 1px solid getColor(gallery);
    margin-bottom: 25px;
    margin-top: 30px;
    opacity: 0.5;
    width: 70%;
    &--nav {
       border: 0;
-      border-top: 1px solid #6C6C6C;
+      border-top: 1px solid getColor(dove-gray);
       margin-bottom: 30px;
       margin-top: 30px;
       opacity: 0.5;

@@ -9,6 +9,12 @@
     overflow: hidden;
 }
 
+.type-headline {
+   @include font-size(22px);
+   margin-bottom: -27px;
+   font-style: italic;
+}
+
 .secondary-content {
    align-self: stretch;
    background: getColor(charcoal);
@@ -51,7 +57,7 @@ footer {
    right: 33px;
    p {
       @include font-size(9px);
-      font-weight: getFontWeight(thin);
+      font-weight: getWeight(thin);
       padding-bottom: 10px;
    }
    @media screen and ( max-height: 900px )  {

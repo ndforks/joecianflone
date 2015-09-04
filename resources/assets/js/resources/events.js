@@ -18,9 +18,6 @@ var Utils = (function(){
          }
 
          return asEventName;
-      },
-      splitter: function() {
-
       }
    };
 })();
@@ -38,15 +35,23 @@ var Binder = (function() {
             return false;
          }
 
+         if (eo.context == window) {
+            $(window).load(function() {
+               PubSub.publish(eo.asEventName, eo.userData);
+            });
+
+            return false;
+         }
+
          $(document).ready(function() {
             PubSub.publish(eo.asEventName, eo.userData);
          });
 
          return false;
       },
+
       asKeyboard: function(eo) {
          var keyType = (eo.bindEvent === "key" || eo.bindEvent === "keydown") ? "keydown" : eo.bindEvent;
-
          $(document).on(keyType, eo.selector, function(e) {
             var charCode = (e.which ? e.which : e.keyCode);
             _.each(eo.keyPress, function(element, index, list){
@@ -58,6 +63,15 @@ var Binder = (function() {
             });
          });
       },
+
+      asTyping: function(eo) {
+         $(document).on("keyup", eo.selector, function(e) {
+            PubSub.publish(eo.asEventName, _.extend({
+               eventElement: $(eo.selector +":focus") || null
+            }, eo.userData));
+         });
+      },
+
       asDocument: function(eo) {
          $(document).on(eo.bindEvent, eo.selector, function(e) {
 
@@ -68,6 +82,7 @@ var Binder = (function() {
             e.stopImmediatePropagation();
             e.preventDefault();
          });
+
       },
 
       asWindow: function(eo) {
@@ -81,27 +96,22 @@ var Binder = (function() {
          return false;
       },
 
-      asBrowser: function(eo) {
-         //window.resize...
-         if (eo.bindEvent === "resize") {
-            return this.asWindow(eo);
-         }
+      asMouse: function(eo) {
+         return this.asDocument(eo);
+      },
 
-         // scroll
-         $(eo.selector).scroll(function() {
+      asForm: function(eo) {
+         return this.asDocument(eo);
+      },
+
+      generic: function(eo) {
+         $(document).on(eo.bindEvent, eo.selector, function(e) {
             PubSub.publish(eo.asEventName, _.extend({
                eventElement: $(this)
             }, eo.userData));
          });
-
-         return false;
-      },
-      asMouse: function(eo) {
-         return this.asDocument(eo);
-      },
-      asForm: function(eo) {
-         return this.asDocument(eo);
       }
+
     };
 })();
 
@@ -115,6 +125,7 @@ var Events = (function() {
       whereKey:         undefined,
       userData:         undefined,
       bindEvent:        undefined,
+      whereType:        undefined,
       whereValue:       undefined,
       asEventName:      undefined,
       bindEventContext: undefined
@@ -122,10 +133,22 @@ var Events = (function() {
 
    var triggers = {
       pub: function(eo) {
-         console.log(eo.whereKey);
-         if (_.isUndefined(eo.whereKey) || $(eo.whereKey).hasClass(eo.whereValue)) {
+         if (_.isUndefined(eo.whereKey)) {
             bindEventAs(eo);
+         } else {
+            var attribute = eo.whereKey.match(/\[(.*?)\]/);
+            if (eo.whereType == "equal") {
+               if ($(eo.whereKey).attr(attribute[1]) == eo.whereValue) {
+                  bindEventAs(eo);
+               }
+            } else {
+               if ($(eo.whereKey).attr(attribute[1]) != eo.whereValue) {
+                  bindEventAs(eo);
+               }
+            }
          }
+
+
       },
       sub: function(eo, funcName) {
          PubSub.subscribe(eo.asEventName, function(data) {
@@ -150,17 +173,24 @@ var Events = (function() {
       }
 
       if (eo.bindEvent === "resize" || eo.bindEvent === "scroll") {
-         return Binder.asBrowser(eo);
+         return Binder.asWindow(eo);
       }
 
       if (eo.bindEvent.indexOf("mouse") === 0 || eo.bindEvent === "hover" || eo.bindEvent === "click" || eo.bindEvent === "dblclick") {
-         console.log(eo);
          return Binder.asMouse(eo);
       }
 
       if (eo.bindEvent.indexOf("focus") === 0 || eo.bindEvent === "blur" || eo.bindEvent === "change" || eo.bindEvent === "select" || eo.bindEvent === "submit") {
          return Binder.asForm(eo);
       }
+
+      if (eo.bindEvent === "typing") {
+         return Binder.asTyping(eo);
+      }
+
+      // we don't kow wtf you're trying to bind so
+      // lets do something and see what happens
+      return Binder.generic(eo);
    };
 
    return {
@@ -179,8 +209,17 @@ var Events = (function() {
       },
 
       where: function(key, value) {
-         eventObject.whereKey    = _.isUndefined(value) ? "body" : key;
-         eventObject.whereValue  = _.isUndefined(value) ? key : value;
+         eventObject.whereType  = "equal";
+         eventObject.whereKey   = key;
+         eventObject.whereValue = _.isUndefined(value) ? key : value;
+
+         return this;
+      },
+
+      whereNot: function(key, value) {
+         eventObject.whereType  = "not-equal";
+         eventObject.whereKey   = key;
+         eventObject.whereValue = _.isUndefined(value) ? key : value;
 
          return this;
       },
@@ -201,7 +240,6 @@ var Events = (function() {
             triggers.sub(eventObject, funcName);
          }
 
-         // Kill everything before you go out...
          eventObject = {};
          return false;
       },

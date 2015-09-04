@@ -4,7 +4,7 @@
    &__text-title {
       @include font-size(16px);
       color: getColor(silver-chalice);
-      font-weight: getFontWeight(ultra-bold);
+      font-weight: getWeight(ultra-bold);
       margin-bottom: 0.25em;
       text-transform: uppercase;
 
@@ -65,7 +65,7 @@
       margin: 1em 0;
       a {
          color: getColor(picton-blue);
-         font-weight: getFontWeight(ultra-bold);
+         font-weight: getWeight(ultra-bold);
          text-decoration: none;
       }
    }
