@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+   'env' => env('APP_ENV', 'production'),
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'timezone' => env('APP_TIMEZONE'),
+    'timezone' => env('APP_TIMEZONE', 'America/New_York'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'locale' => env('APP_LOCALE'),
+    'locale' => env('APP_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
 
     'key' => env('APP_KEY', 'SomeRandomString'),
 
-    'cipher' => MCRYPT_RIJNDAEL_128,
+    'cipher' => MCRYPT_RIJNDAEL_256,
 
     /*
     |--------------------------------------------------------------------------
@@ -113,13 +113,11 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
-        'Illuminate\Foundation\Providers\ArtisanServiceProvider',
         'Illuminate\Auth\AuthServiceProvider',
         'Illuminate\Broadcasting\BroadcastServiceProvider',
         'Illuminate\Bus\BusServiceProvider',
         'Illuminate\Cache\CacheServiceProvider',
         'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
-        'Illuminate\Routing\ControllerServiceProvider',
         'Illuminate\Cookie\CookieServiceProvider',
         'Illuminate\Database\DatabaseServiceProvider',
         'Illuminate\Encryption\EncryptionServiceProvider',
