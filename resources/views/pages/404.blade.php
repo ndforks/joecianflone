@@ -1,5 +1,6 @@
 @extends ('layouts.master')
 
 @section('main')
-   <h1>OH SNAP!!</h1>
+   <h1>Page Not Found</h1>
+
 @stop

@@ -38,9 +38,13 @@ class EloquentStreamRepository implements StreamRepository {
 
    public function getPinnedStreamItem()
    {
-      return $this->stream
+      $firstPinnedItem = $this->stream
                   ->where("is_pinned", true)
-                  ->first()->toJson();
+                  ->first();
+
+      if (! is_null($firstPinnedItem)) {
+         return $firstPinnedItem->toJson();
+      }
    }
 
    public function getArticleBySlug($slug)

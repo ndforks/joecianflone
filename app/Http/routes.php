@@ -6,8 +6,8 @@ Route::get('/stream/{type?}', 'StreamController@stream');
 
 
 Route::resource('contact', 'ContactController', [
-   'only' => ['index', 'store']
+   'only' => ['store']
 ]);
 
 Route::get('/article/{slug}', 'ArticleController@article');
-Route::get('/{pageName?}', 'PageController@index');
+Route::get('/{pageName?}', 'PageController@index')->where('pageName', '.*');
