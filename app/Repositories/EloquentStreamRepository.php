@@ -22,14 +22,15 @@ class EloquentStreamRepository implements StreamRepository {
                   ->paginate(20)->toJson();
    }
 
-   public function getStreamType($type)
+   public function getStreamType(string $type)
    {
       $stream = $this->stream
                      ->where("type", $type)
                      ->orderBy('item_created_at', 'desc')
                      ->paginate(20);
 
-      if ($stream->count() <= 0) {
+      if ($stream->count() <= 0)
+      {
          throw new NoStreamItemsFoundException();
       }
 
@@ -47,7 +48,7 @@ class EloquentStreamRepository implements StreamRepository {
       }
    }
 
-   public function getArticleBySlug($slug)
+   public function getArticleBySlug(string $slug)
    {
       $article = $this->stream
                       ->where("slug", $slug)
@@ -80,7 +81,7 @@ class EloquentStreamRepository implements StreamRepository {
       }
    }
 
-   public function updateStreamItem($itemId, $updates)
+   public function updateStreamItem(int $itemId, $updates) : void
    {
       $this->stream
            ->where("item_id", $itemId)

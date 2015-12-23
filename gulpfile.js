@@ -49,20 +49,35 @@ var gulp       = require('gulp'),
     prefixer   = require('gulp-autoprefixer'),
     pngquant   = require('imagemin-pngquant');
 
+/**
+ * Configuration object
+ * Various folders that Gulp is going to need to know about.
+ * Feel free to move all this stuff around, just make sure you
+ * keep this file up-to-date
+ */
 var config = {
    dest: {
       js:     "public/assets/js/",
       css:    "public/assets/css/",
       imgs:   "public/assets/images/",
-      fonts:  "public/assets/fonts/"
+      fonts:  "public/assets/fonts/",
    },
    src: {
-      js:    "resources/assets/js/",
-      hbs:   "resources/assets/js/templates/",
-      sass:  "resources/assets/sass/",
-      imgs:  "resources/assets/images/",
-      tmpl:  "templates.tpl",
-      bower: "resources/assets/bower/"
+      js:        "resources/assets/js/",
+      hbs:       "resources/assets/js/templates/",
+      // If you change where bower installs files, make sure you also
+      // update the .bowerrc file too.
+      bower:     "resources/assets/bower/",
+      sass:      "resources/assets/sass/",
+      // When you crate a new image you should put them in the SRC directory
+      // from there imagemin will see it and compress the image and copy the
+      // image into the /public/assets/images folder where you can call it.
+      imgs:    "resources/assets/images/",
+      // when handlebars compiles all your scripts together, it needs a place to put them.
+      // it goes into this .tpl file before getting compiled into the main JS file.
+      // Why .tpl? If you name it .js then the gulp watcher goes crazy because it sees
+      // you writing a new JS file.
+      templates: "templates.tpl"
    }
 };
 
@@ -75,25 +90,26 @@ var scripts = {
    // jQuery and Modernizr should not be concatenated with everything else
    // Why? Modernizer needs to be in the <head> and jQuery only needs to be
    // loaded IF the google CDN version fails to load
-   jquery:     [config.src.bower + "jquery/dist/jquery.js"],
-   modernizr:  [config.src.bower + "modernizr/modernizr.js"],
+   jquery:     [config.src.bower +"jquery/dist/jquery.js"],
+   modernizr:  [config.src.bower +"modernizr/modernizr.js"],
 
    main: [
       config.src.bower + "jquery-validation/dist/jquery.validate.js",
       config.src.bower + "underscore/underscore.js",
+      config.src.bower + "underscore.string/dist/underscore.string.js",
       config.src.bower + "momentjs/moment.js",
-      config.src.bower + "livestampjs/livestamp.js",
       config.src.bower + "handlebars/handlebars.runtime.js",
       config.src.bower + "amplify/lib/amplify.js",
-      config.src.js    + config.src.tmpl,
+      config.src.bower + "jQuery-linkify/dist/jquery.linkify.js",
+      config.src.js    + config.src.templates,
       config.src.js    + "app.js",
       config.src.js    + "resources/**/*.js",
       config.src.js    + "helpers/**/*.js",
+      config.src.js    + "transformers/**/*.js",
       config.src.js    + "modules/**/*.js",
       config.src.js    + "main.js"
    ],
 };
-
 // Grab latest from Bower .....................................................
 gulp.task('bower', function() {
     return bower()
@@ -111,7 +127,7 @@ gulp.task('cleaner', function () {
 });
 
 // Copy assets to public folder ...............................................
-gulp.task('copy', function () {
+gulp.task('copy', ['bower'], function () {
    gulp.src([config.src.bower +"fontawesome/fonts/fontawesome-webfont.*"])
       .pipe(gulp.dest(config.dest.fonts));
 });
@@ -133,13 +149,15 @@ gulp.task('imagemin', function () {
 gulp.task('handlebars', function () {
     gulp.src(config.src.hbs+'*.hbs')
       .pipe(plumber({errorHandler: notify.onError("Handlebars Error:\n<%= error.message %>")}))
-      .pipe(handlebars())
+      .pipe(handlebars({
+            handlebars: require('handlebars')
+       }))
       .pipe(wrap('Handlebars.template(<%= contents %>)'))
       .pipe(declare({
           namespace: 'Handlebars.templates',
           noRedeclare: true,
       }))
-      .pipe(concat(config.src.tmpl))
+      .pipe(concat(config.src.templates))
       .pipe(gulp.dest(config.src.js))
       .pipe(livereload());
 });
@@ -165,13 +183,13 @@ gulp.task('js', ['handlebars'], function() {
        .pipe(sourcemaps.init())
           .pipe(concat("app.min.js"))
           .pipe(gulpif(yargs.production, uglify()))
-       .pipe(sourcemaps.write())
+       .pipe(sourcemaps.write("maps"))
        .pipe(gulp.dest(config.dest.js))
        .pipe(livereload());
 });
 
 // Compile the Sass ...........................................................
-gulp.task('sass', function () {
+gulp.task('sass', ['bower'], function () {
    gulp.src(config.src.sass + '*.scss')
        .pipe(plumber({errorHandler: notify.onError("Sass Error:\n<%= error.message %>")}))
        .pipe(sourcemaps.init())
@@ -183,7 +201,7 @@ gulp.task('sass', function () {
              cascade: false,
              remove: true
            }))
-       .pipe(sourcemaps.write())
+       .pipe(sourcemaps.write("maps"))
        .pipe(gulp.dest(config.dest.css))
        .pipe(livereload());
 });
@@ -199,8 +217,12 @@ gulp.task('watch', function () {
    gulp.watch(config.src.imgs + '**/*.*',    ['imagemin']);
 });
 
-gulp.task('boot',   ['cleaner', 'bower', 'copy']);
+// just say $> gulp
+gulp.task('default', ['js', 'sass', 'imagemin', 'watch']);
+
+// Does a little spring cleaning if you ever need it...
+// just say $> gulp boot
+gulp.task('boot', ['cleaner', 'bower', 'copy']);
+
+// just say $> gulp compile
 gulp.task('compile', ['boot', 'js', 'sass', 'imagemin']);
-gulp.task('default', ['boot', 'js', 'sass', 'imagemin','watch']);
-
-
