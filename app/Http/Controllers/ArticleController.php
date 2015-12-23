@@ -16,7 +16,7 @@ class ArticleController extends Controller
       $this->stream = $stream;
    }
 
-   public function article($slug = null)
+   public function article(string $slug = null)
    {
       try {
          $element = json_decode($this->stream->getArticleBySlug($slug));

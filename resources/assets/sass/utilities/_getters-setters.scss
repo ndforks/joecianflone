@@ -1,0 +1,32 @@
+@function get-by($key, $map) {
+    @if map-has-key($map, $key) {
+        @return map-get($map, $key);
+    }
+    @else {
+       @error "Unknown #{$key}";
+    }
+}
+
+@function get-zindex($increment: 1) {
+   @return $current-zindex + $increment;
+}
+
+@function get-value($n) {
+    @return $n / ($n * 0 + 1);
+}
+
+@function get-color($name) {
+   @return get-by($name, $colors);
+}
+
+@function get-font-weight($size) {
+   @return get-by($size, $font-weights);
+}
+
+@function get-stack($setting) {
+   @return get-by($setting, $stack-settings);
+}
+
+@function get-line-height($font-size, $line-height) {
+   @return get-value($line-height / $font-size);
+}

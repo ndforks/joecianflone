@@ -1,6 +1,6 @@
 .masthead {
    &__logo {
-      font-family: getStack(sans-serif);
+      font-family: get-stack(sans-serif);
       letter-spacing: -3px;
       margin-top: -20px;
       text-align: right;
@@ -12,7 +12,7 @@
 
       a  {
          @include font-size(55px);
-         color: getColor(charcoal);
+         color: get-color(charcoal);
          text-decoration: none;
 
          @include media("<small") {

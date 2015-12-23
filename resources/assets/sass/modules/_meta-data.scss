@@ -26,8 +26,8 @@
 }
 
 .meta-list {
-   color: getColor(dove-gray);
-   font-family: getStack(serif);
+   color: get-color(dove-gray);
+   font-family: get-stack(serif);
    list-style-type: none;
    margin: 0;
    padding: 0;
@@ -36,7 +36,7 @@
       @include font-size(14px);
       display: inline-block;
       padding: 0 5px;
-      font-weight: getWeight(light);
+      font-weight: get-font-weight(light);
       @include media("<small") {
          @include font-size(12px);
       }

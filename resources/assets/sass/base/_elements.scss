@@ -7,12 +7,12 @@
 html {
    box-sizing: border-box;
    font: {
-      family: getStack(serif);
-      size: getStack(base-size);
-      weight: getWeight(light);
+      family: get-stack(serif);
+      size: get-stack(base-size);
+      weight: get-font-weight(light);
    }
-   letter-spacing: getStack(letter-spacing);
-   line-height: getStack(line-height);
+   letter-spacing: get-stack(letter-spacing);
+   line-height: get-stack(line-height);
    height: 100%;
 }
 
@@ -37,17 +37,17 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-   color: getColor(dove-gray);
+   color: get-color(dove-gray);
    font: {
-      family: getStack(serif);
-      weight: getWeight(regular);
+      family: get-stack(serif);
+      weight: get-font-weight(regular);
    }
    letter-spacing: 0;
    margin: 0;
 }
 
 b, strong {
-   font-weight: getWeight(regular);
+   font-weight: get-font-weight(regular);
 }
 
 p, ul, ol {
@@ -75,7 +75,7 @@ nav {
 }
 
 article {
-   border-bottom: 1px solid getColor(gallery);
+   border-bottom: 1px solid get-color(gallery);
    margin-top: 2em;
    padding-bottom: 2em;
    @include last() {
@@ -86,14 +86,14 @@ article {
 .rule {
    display: none;
    border: 0;
-   border-top: 1px solid getColor(gallery);
+   border-top: 1px solid get-color(gallery);
    margin-bottom: 25px;
    margin-top: 30px;
    opacity: 0.5;
    width: 70%;
    &--nav {
       border: 0;
-      border-top: 1px solid getColor(dove-gray);
+      border-top: 1px solid get-color(dove-gray);
       margin-bottom: 30px;
       margin-top: 30px;
       opacity: 0.5;

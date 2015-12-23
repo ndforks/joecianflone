@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_type=1);
 namespace JoeCianflone\Http\Controllers;
 
 use JoeCianflone\Contracts\StreamRepository;
@@ -22,7 +22,7 @@ class StreamController extends Controller
       return view('pages.home', compact('stream', 'pinned'));
    }
 
-   public function stream($type = 'all')
+   public function stream(string $type = 'all')
    {
       if ($type === 'all') {
          return redirect('/');

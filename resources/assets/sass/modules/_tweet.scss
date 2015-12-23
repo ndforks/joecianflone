@@ -24,10 +24,10 @@
    padding: 1.5rem 0;
    &__text {
       @include font-size(28px);
-      color: getColor(charcoal);
+      color: get-color(charcoal);
       font: {
-         family: getStack(serif);
-         weight: getWeight(light);
+         family: get-stack(serif);
+         weight: get-font-weight(light);
       }
       @include media("<small") {
          @include font-size(23px);
@@ -37,7 +37,7 @@
          line-height: 1.4;
       }
       a {
-         color: getColor(picton-blue);
+         color: get-color(picton-blue);
          text-decoration: none;
       }
    }

@@ -3,8 +3,8 @@
 
    &__text-title {
       @include font-size(16px);
-      color: getColor(silver-chalice);
-      font-weight: getWeight(ultra-bold);
+      color: get-color(silver-chalice);
+      font-weight: get-font-weight(ultra-bold);
       margin-bottom: 0.25em;
       text-transform: uppercase;
 
@@ -14,7 +14,7 @@
    }
 
    &__header {
-      color: getColor(dove-gray);
+      color: get-color(dove-gray);
       margin: 1em 0 3em 0;
 
       h1 {
@@ -41,7 +41,7 @@
    }
    &__body {
       @include font-size(18px);
-      color: getColor(dove-gray);
+      color: get-color(dove-gray);
       line-height: 1.5;
 
       @include media("<bitty") {
@@ -58,14 +58,14 @@
       }
    }
    a {
-      color: getColor(picton-blue);
+      color: get-color(picton-blue);
    }
    &__read-more {
       @include font-size(13px);
       margin: 1em 0;
       a {
-         color: getColor(picton-blue);
-         font-weight: getWeight(ultra-bold);
+         color: get-color(picton-blue);
+         font-weight: get-font-weight(ultra-bold);
          text-decoration: none;
       }
    }
