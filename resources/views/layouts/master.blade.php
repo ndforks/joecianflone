@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/Product">
     <head>
+
       @include('fragments.layout.head')
       @yield('head')
     </head>
@@ -11,7 +12,7 @@
          <main class="main-content">
             <div class="wrapper">
                <header class="masthead">
-                  <h1 class="masthead__logo"><a href="/" title="JoeCianflone.co">JoeCianflone.co</a></h1>
+                  <h1 class="masthead__logo"><a href="/" data-click="logo" title="JoeCianflone.co">JoeCianflone.co</a></h1>
                </header>
                <section class="content">
                   @yield('main')

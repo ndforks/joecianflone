@@ -8,7 +8,7 @@ class Stream extends Model
     protected $table    = 'streams';
 
     protected $dates    = ['item_created_at', 'created_at', 'updated_at'];
-    protected $fillable = ['id', 'item_id', 'type', 'is_pinned', 'slug', 'meta', 'content', 'item_created_at'];
+    protected $fillable = ['id', 'item_id', 'type', 'is_pinned', 'slug', 'meta', 'content', 'revision', 'item_created_at'];
 
     protected $casts    = [
        'meta'      => 'array',
