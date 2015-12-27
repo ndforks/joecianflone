@@ -5,7 +5,7 @@
             <div class="mediabox__visual">
                @foreach ($element->content->entities->media as $item)
                   @if ($item->type === "photo")
-                     <img height="{{ $item->sizes->small->h }}" width="{{$item->sizes->small->w}}" src="{{ $item->media_url }}" alt="">
+                     <img height="{{ $item->sizes->small->h }}" width="{{$item->sizes->small->w}}" src="{{ $item->media_url_https }}" alt="">
                   @endif
                @endforeach
             </div>
