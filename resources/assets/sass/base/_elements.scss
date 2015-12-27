@@ -7,7 +7,7 @@
 html {
    box-sizing: border-box;
    font: {
-      family: get-stack(serif);
+      family: get-stack(sans-serif);
       size: get-stack(base-size);
       weight: get-font-weight(light);
    }
@@ -39,7 +39,7 @@ img {
 h1, h2, h3, h4, h5, h6 {
    color: get-color(dove-gray);
    font: {
-      family: get-stack(serif);
+      family: get-stack(sans-serif);
       weight: get-font-weight(regular);
    }
    letter-spacing: 0;

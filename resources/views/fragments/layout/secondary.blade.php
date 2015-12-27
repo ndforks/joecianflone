@@ -17,11 +17,10 @@
                   </ul>
                </li>
                <li class="navigation-list__item"><a href="/about">about</a></li>
-               <li class="navigation-list__item"><a href="/feed">feed</a></li>
             </ul>
             <hr class="rule--nav">
             <ul class="navigation-list">
-               <li class="navigation-list__item"><a href="#">Projects &amp; Contributions</a>
+               <li class="navigation-list__item">Projects &amp; Contributions
                   <ul class="navigation-list--secondary">
                      <li class="navigation-list__item"><a href="{{ url('/projects/heisenberg') }}/projects/heisenberg">Heisenberg</a></li>
                      <li class="navigation-list__item"><a href="{{ url('/projects/laravel-elixir-sass-compass') }}">Laravel Elixir Compass Plugin</a></li>
@@ -32,6 +31,7 @@
             <ul class="navigation-list--icons">
                <li class="navigation-list__item"><a href="//twitter.com/JoeCianflone" target="_blank" title="Twitter"><span class="fa fa-twitter"></span></a></li>
                <li class="navigation-list__item"><a href="//github.com/JoeCianflone" target="_blank" title="Github"><span class="fa fa-github"></span></a></li>
+               <li class="navigation-list__item"><a href="{{ url('/feed') }}" title="RSS Feed"><span class="fa fa-rss"></span></a></li>
 {{--                <li class="navigation-list__item"><a href="//youtube.com/JoeCianflone" target="_blank" title="YouTube"><span class="fa fa-youtube"></span></a></li>
                <li class="navigation-list__item"><a href="/contact" title="Contact"><span class="fa fa-envelope"></span></a></li> --}}
             </ul>
