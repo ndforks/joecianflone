@@ -39,6 +39,7 @@ class EloquentStreamRepository implements StreamRepository {
 
    public function getPinnedStreamItem()
    {
+
       $firstPinnedItem = $this->stream
                   ->where("is_pinned", true)
                   ->first();
@@ -46,6 +47,8 @@ class EloquentStreamRepository implements StreamRepository {
       if (! is_null($firstPinnedItem)) {
          return $firstPinnedItem->toJson();
       }
+
+      return null;
    }
 
    public function getArticleBySlug(string $slug)
@@ -64,14 +67,31 @@ class EloquentStreamRepository implements StreamRepository {
 
    public function saveLatestToStream($item)
    {
-      $count = $this->stream
-                    ->where('type', $item["type"])
-                    ->where('item_id', $item["item_id"])
-                    ->count();
+      $this->stream->create($item);
+   }
 
-      if ($count <= 0) {
-         $this->stream->create($item);
-      }
+   public function updateItemInStream($item)
+   {
+      // TODO: basically this is always going to update
+      // and always going to say there is a revision
+      // you're going to need to make this more
+      // robust.
+      $this->stream
+           ->where('type', $item['type'])
+           ->where('slug', $item['slug'])
+           ->increment('revision', 1, [
+              'content' => json_encode($item['content']),
+              'is_pinned' => $item['is_pinned']
+            ]);
+
+   }
+
+   public function exists($item)
+   {
+      return $this->stream
+                  ->where('type', $item['type'])
+                  ->where('slug', $item['slug'])
+                  ->count() > 0;
    }
 
    public function saveCollectionToStream($collection)
@@ -81,7 +101,7 @@ class EloquentStreamRepository implements StreamRepository {
       }
    }
 
-   public function updateStreamItem(int $itemId, $updates) : void
+   public function updateStreamItem(int $itemId, $updates)
    {
       $this->stream
            ->where("item_id", $itemId)

@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use JoeCianflone\Contracts\StreamRepository;
 use JoeCianflone\Transformers\ArticleTransformer;
 
-class SaveNewArticles
+class SaveArticles implements ShouldQueue
 {
    private $stream;
    private $transformer;
@@ -32,6 +32,13 @@ class SaveNewArticles
    public function handle(GotSomeArticles $event)
    {
       $articles = $this->transformer->transform($event->articles);
-      $this->stream->saveCollectionToStream($articles);
+
+      foreach ($articles as $article) {
+         if ($this->stream->exists($article)) {
+            $this->stream->updateItemInStream($article);
+         } else {
+            $this->stream->saveLatestToStream($article);
+         }
+      }
    }
 }

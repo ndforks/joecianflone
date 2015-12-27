@@ -17,9 +17,9 @@ class GotSomeArticles extends Event
      *
      * @return void
      */
-    public function __construct($rawArticles)
+    public function __construct($articles)
     {
-        $this->articles = $rawArticles;
+        $this->articles = $articles;
     }
 
     /**

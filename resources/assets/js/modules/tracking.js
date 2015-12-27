@@ -1,6 +1,6 @@
 App.Modules = App.Modules || {};
 
-App.Modules.NavToggle = function () {
+App.Modules.Tracking = function () {
 
    var o = { };
 

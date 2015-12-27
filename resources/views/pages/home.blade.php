@@ -8,7 +8,7 @@
 
    @foreach ($stream->data as $element)
 
-      @if ($element->type === "twitter")
+      @if ($element->type === "tweet")
          @include("fragments.stream.tweet")
       @endif
 

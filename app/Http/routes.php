@@ -1,9 +1,12 @@
 <?php
 
+Route::get('/', 'StreamController@index')->name('home');
 
-Route::get('/', 'StreamController@index');
-Route::get('/stream/{type?}', 'StreamController@stream');
-
+Route::group(['prefix' => 'stream'], function() {
+   Route::get('', 'StreamController@stream');
+   Route::get('articles', 'StreamController@articles')->name('stream.articles');
+   Route::get('tweets', 'StreamController@tweets')->name('stream.tweets');
+});
 
 Route::resource('contact', 'ContactController', [
    'only' => ['store']

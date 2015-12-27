@@ -16,6 +16,11 @@ class Stream extends Model
        'is_pinned' => 'boolean',
     ];
 
+    public function setContentAttribute($value)
+    {
+       $this->attributes['content'] = json_encode($value);
+    }
+
     public function getContentAttribute($value)
     {
        return json_decode($value);
@@ -25,4 +30,5 @@ class Stream extends Model
     {
        return json_decode($value);
     }
+
 }

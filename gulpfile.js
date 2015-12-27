@@ -98,6 +98,7 @@ var scripts = {
       config.src.bower + "underscore/underscore.js",
       config.src.bower + "underscore.string/dist/underscore.string.js",
       config.src.bower + "momentjs/moment.js",
+      config.src.bower + "livestampjs/livestamp.js",
       config.src.bower + "handlebars/handlebars.runtime.js",
       config.src.bower + "amplify/lib/amplify.js",
       config.src.bower + "jQuery-linkify/dist/jquery.linkify.js",

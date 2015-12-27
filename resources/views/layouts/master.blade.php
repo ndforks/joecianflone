@@ -12,7 +12,7 @@
          <main class="main-content">
             <div class="wrapper">
                <header class="masthead">
-                  <h1 class="masthead__logo"><a href="/" data-click="logo" title="JoeCianflone.co">JoeCianflone.co</a></h1>
+                  <h1 class="masthead__logo"><a href="{{ url('/') }}" data-click="logo" title="JoeCianflone.co">JoeCianflone.co</a></h1>
                </header>
                <section class="content">
                   @yield('main')

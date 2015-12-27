@@ -9,9 +9,9 @@
             <ul class="navigation-list">
                <li class="navigation-list__item is-selected"><a href="/">home</a>
                   <ul class="navigation-list--secondary">
-                     <li class="navigation-list__item"><a href="/stream/all">#stream</a></li>
-                     <li class="navigation-list__item"><a href="/stream/article">#articles</a></li>
-                     <li class="navigation-list__item"><a href="/stream/twitter">#tweets</a></li>
+                     <li class="navigation-list__item"><a href="{{ url('/') }}">#stream</a></li>
+                     <li class="navigation-list__item"><a href="{{ url('/stream/articles') }}">#articles</a></li>
+                     <li class="navigation-list__item"><a href="{{ url('/stream/tweets') }}">#tweets</a></li>
 {{--                      <li class="navigation-list__item"><a href="/stream/github">#github</a></li>
                      <li class="navigation-list__item"><a href="/stream/videos">#videos</a></li> --}}
                   </ul>
@@ -23,8 +23,8 @@
             <ul class="navigation-list">
                <li class="navigation-list__item"><a href="#">Projects &amp; Contributions</a>
                   <ul class="navigation-list--secondary">
-                     <li class="navigation-list__item"><a href="/projects/heisenberg">heisenberg</a></li>
-                     <li class="navigation-list__item"><a href="/projects/laravel-elixir-sass-compass">laravel-elixir-sass-compass</a></li>
+                     <li class="navigation-list__item"><a href="{{ url('/projects/heisenberg') }}/projects/heisenberg">Heisenberg</a></li>
+                     <li class="navigation-list__item"><a href="{{ url('/projects/laravel-elixir-sass-compass') }}">Laravel Elixir Compass Plugin</a></li>
                   </ul>
                </li>
             </ul>
@@ -37,7 +37,7 @@
             </ul>
          </nav>
          <footer>
-            <p>The content on this site is mine alone. The views expressed herein do not necessarily reflect the views of my employers or contracted clients.</p>
+            <p>The content on this site is mine alone. The views expressed herein do not necessarily reflect the views of my employers clients.</p>
             <p>This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.</p>
          </footer>
       </div>

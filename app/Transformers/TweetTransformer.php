@@ -13,7 +13,7 @@ class TweetTransformer
             'id' => Uuid::uuid1()->toString(),
             'content' => $tweet,
             'item_id' => $tweet->id_str,
-            'type' => 'twitter',
+            'type' => 'tweet',
             'item_created_at' => Carbon::parse($tweet->created_at)->timezone(env("APP_TIMEZONE"))
          ];
       }, $tweets);

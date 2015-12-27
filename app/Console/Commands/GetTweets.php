@@ -1,7 +1,9 @@
-<?php namespace JoeCianflone\Console\Commands;
+<?php
 
-use Twitter;
+namespace JoeCianflone\Console\Commands;
+
 use Event;
+use Twitter;
 use Illuminate\Console\Command;
 use JoeCianflone\Events\GotSomeTweets;
 

@@ -2,9 +2,9 @@
 
 @section('main')
    <h3 class="type-headline">{{$stream->data[0]->type}}</h3>
-   @foreach ($stream->data as $element)
+@foreach ($stream->data as $element)
 
-      @if ($element->type === "twitter")
+      @if ($element->type === "tweet")
          @include("fragments.stream.tweet")
       @endif
 

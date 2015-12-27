@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use JoeCianflone\Contracts\StreamRepository;
 use JoeCianflone\Transformers\TweetTransformer;
 
-class SaveNewTweets implements ShouldQueue
+class SaveTweets implements ShouldQueue
 {
    private $stream;
    private $transformer;

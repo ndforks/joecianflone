@@ -1,4 +1,5 @@
-<?php declare(strict_type=1);
+<?php declare(strict_types=1);
+
 namespace JoeCianflone\Http\Controllers;
 
 use JoeCianflone\Contracts\StreamRepository;
@@ -16,25 +17,42 @@ class StreamController extends Controller
 
    public function index()
    {
-      $pinned = json_decode($this->stream->getPinnedStreamItem());
+      $pinned = $this->stream->getPinnedStreamItem();
+      if (! is_null($pinned)) {
+         $pinned = json_decode($pinned);
+      }
+
       $stream = json_decode($this->stream->getFullStream(10));
 
-      return view('pages.home', compact('stream', 'pinned'));
+
+      return view('pages.home', compact('pinned', 'stream'));
    }
 
-   public function stream(string $type = 'all')
+   public function stream()
    {
-      if ($type === 'all') {
-         return redirect('/');
-      }
+      return redirect()->route('home');
+   }
 
-      try {
-         $stream = json_decode($this->stream->getStreamType($type));
-      } catch (NoStreamItemsFoundException $e) {
-         return redirect('/');
-      }
+   public function articles()
+   {
+      $stream = $this->getStreamContent('article');
 
       return view('pages.stream', compact('stream'));
    }
 
+   public function tweets()
+   {
+      $stream = $this->getStreamContent('tweet');
+
+      return view('pages.stream', compact('stream'));
+   }
+
+   private function getStreamContent(string $type)
+   {
+      try {
+         return json_decode($this->stream->getStreamType($type));
+      } catch (NoStreamItemsFoundException $e) {
+         return redirect()->route('home');
+      }
+   }
 }
