@@ -1,4 +1,4 @@
-<section class="secondary-content">
+<section class="secondary-content js-secondary-content">
    <div class="wrapper js-wrapper">
       <a href="#" class="menu-toggler js-menu-toggler" title="Toggle Sidebar">
          <span class="menu-toggler__bars fa fa-bars"></span>
