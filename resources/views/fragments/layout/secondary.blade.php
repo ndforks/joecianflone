@@ -8,13 +8,13 @@
          <nav>
             <ul class="navigation-list">
                <li class="navigation-list__item is-selected"><a href="/">home</a>
-                  <ul class="navigation-list--secondary">
+{{--                   <ul class="navigation-list--secondary">
                      <li class="navigation-list__item"><a href="{{ url('/') }}">#stream</a></li>
                      <li class="navigation-list__item"><a href="{{ url('/stream/articles') }}">#articles</a></li>
                      <li class="navigation-list__item"><a href="{{ url('/stream/tweets') }}">#tweets</a></li>
-{{--                      <li class="navigation-list__item"><a href="/stream/github">#github</a></li>
-                     <li class="navigation-list__item"><a href="/stream/videos">#videos</a></li> --}}
-                  </ul>
+                      <li class="navigation-list__item"><a href="/stream/github">#github</a></li>
+                     <li class="navigation-list__item"><a href="/stream/videos">#videos</a></li>
+                  </ul> --}}
                </li>
                <li class="navigation-list__item"><a href="/about">about</a></li>
             </ul>
