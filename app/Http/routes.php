@@ -13,4 +13,5 @@ Route::resource('contact', 'ContactController', [
 ]);
 
 Route::get('/article/{slug}', 'ArticleController@article');
-Route::get('/{pageName?}', 'PageController@index')->where('pageName', '.*');
+Route::get('/projects/{slug?}', 'PageController@project');
+Route::get('/{slug?}', 'PageController@index');

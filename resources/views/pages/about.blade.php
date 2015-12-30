@@ -1,5 +1,7 @@
 @extends ('layouts.master')
 
+@section('signature', 'about')
+
 @section('main')
    <article class="post">
       <header class="post__header">

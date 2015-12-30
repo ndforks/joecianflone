@@ -4,7 +4,7 @@
       @include('fragments.layout.head')
       @yield('head')
     </head>
-    <body>
+    <body class="@yield('signature')">
       @include('fragments.layout.browser-warning')
 
       <div class="container">

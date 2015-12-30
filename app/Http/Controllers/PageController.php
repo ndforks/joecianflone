@@ -13,10 +13,21 @@ class PageController extends Controller
 
    public function index(string $slug)
    {
-      $slug = str_replace("/", ".", $slug);
+      $slug = str_replace("/", "", $slug);
 
       if (View::exists('pages.'.$slug)) {
          return view('pages.'. $slug);
+      }
+
+      return abort(404);
+   }
+
+   public function project(string $slug)
+   {
+      $slug = str_replace("/", "", $slug);
+
+      if (View::exists('projects.'.$slug)) {
+         return view('projects.'. $slug);
       }
 
       return abort(404);

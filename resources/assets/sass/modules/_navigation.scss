@@ -1,3 +1,16 @@
+.stream .stream,
+.about .about,
+.projects .projects {
+   color: get-color(picton-blue);
+}
+
+.heisenberg .heisenberg,
+.article .article,
+.tweet .tweets,
+.laravel-sass .laravel-sass {
+   color: lighten(get-color(picton-blue), 15%);
+}
+
 .menu-toggler {
    color: get-color(white);
    display: block;

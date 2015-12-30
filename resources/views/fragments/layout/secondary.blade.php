@@ -7,23 +7,22 @@
       <div class="js-toggle-hide">
          <nav>
             <ul class="navigation-list">
-               <li class="navigation-list__item is-selected"><a href="/">home</a>
-{{--                   <ul class="navigation-list--secondary">
-                     <li class="navigation-list__item"><a href="{{ url('/') }}">#stream</a></li>
-                     <li class="navigation-list__item"><a href="{{ url('/stream/articles') }}">#articles</a></li>
-                     <li class="navigation-list__item"><a href="{{ url('/stream/tweets') }}">#tweets</a></li>
-                      <li class="navigation-list__item"><a href="/stream/github">#github</a></li>
-                     <li class="navigation-list__item"><a href="/stream/videos">#videos</a></li>
-                  </ul> --}}
+               <li class="navigation-list__item"><a class="stream" href="{{ url('/') }}">Stream</a>
+                  <ul class="navigation-list--secondary">
+                     <li class="navigation-list__item"><a class="article" href="{{ url('/stream/articles') }}">#articles</a></li>
+                     <li class="navigation-list__item"><a class="tweets" href="{{ url('/stream/tweets') }}">#tweets</a></li>
+{{--                      <li class="navigation-list__item"><a class="github" href="/stream/github">#github</a></li>
+                     <li class="navigation-list__item"><a class="videos" href="/stream/videos">#videos</a></li> --}}
+                  </ul>
                </li>
-               <li class="navigation-list__item"><a href="/about">about</a></li>
+               <li class="navigation-list__item"><a class="about" href="/about">about</a></li>
             </ul>
             <hr class="rule--nav">
             <ul class="navigation-list">
-               <li class="navigation-list__item">Projects &amp; Contributions
+               <li class="navigation-list__item"><a href="#" class="projects">Projects &amp; Contributions</a>
                   <ul class="navigation-list--secondary">
-                     <li class="navigation-list__item"><a href="{{ url('/projects/heisenberg') }}/projects/heisenberg">Heisenberg</a></li>
-                     <li class="navigation-list__item"><a href="{{ url('/projects/laravel-elixir-sass-compass') }}">Laravel Elixir Compass Plugin</a></li>
+                     <li class="navigation-list__item"><a class="heisenberg" href="{{ url('/projects/heisenberg') }}">Heisenberg</a></li>
+                     <li class="navigation-list__item"><a class="laravel-sass" href="{{ url('/projects/laravel-elixir-compass-plugin') }}">Laravel Elixir Compass Plugin</a></li>
                   </ul>
                </li>
             </ul>

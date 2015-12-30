@@ -1,5 +1,5 @@
 <article data-id="{{ $element->item_id }}">
-   <blockquote class="tweet" cite="{{$element->content->retweeted_status->user->screen_name or 'JoeCianflone' }}">
+   <blockquote class="tweet-block" cite="{{$element->content->retweeted_status->user->screen_name or 'JoeCianflone' }}">
       <div class="mediabox">
          @if (isset($element->content->entities->media))
             <div class="mediabox__visual">
@@ -11,7 +11,7 @@
             </div>
          @endif
          <div class={!! isset($element->content->entities->media) ? "mediabox__text" : "mediabox__text--full" !!}>
-            <p class="tweet__text">{!! Twitter::linkify($element->content->text) !!}</p>
+            <p class="tweet-block__text">{!! Twitter::linkify($element->content->text) !!}</p>
          </div>
          @if (isset($element->content->entities->media))
             <div class="meta-data--inside">

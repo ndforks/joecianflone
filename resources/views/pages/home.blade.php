@@ -1,5 +1,7 @@
 @extends ('layouts.master')
 
+@section('signature', 'home stream')
+
 @section('main')
 
    @if (! is_null($pinned))
