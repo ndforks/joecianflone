@@ -14,4 +14,6 @@ Route::resource('contact', 'ContactController', [
 
 Route::get('/article/{slug}', 'ArticleController@article');
 Route::get('/projects/{slug?}', 'PageController@project');
+//Route::get('/feed', 'RSSFeedController@index');
 Route::get('/{slug?}', 'PageController@index');
+

@@ -10,9 +10,9 @@
 }
 
 .type-headline {
-   @include font-size(22px);
-   margin-bottom: -27px;
+   @include font-size(16px);
    font-style: italic;
+   text-transform: uppercase;
 }
 
 .secondary-content {
@@ -68,7 +68,7 @@ footer {
       font-weight: get-font-weight(thin);
       padding-bottom: 10px;
    }
-   @media screen and ( max-height: 900px )  {
+   @media screen and ( max-height: 650px )  {
       bottom: auto;
       left: auto;
       padding: 10px 32px 0 32px;

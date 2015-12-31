@@ -1,4 +1,4 @@
-App.Modules = App.Modules || {};
+   App.Modules = App.Modules || {};
 
 App.Modules.NavToggle = function () {
    "use strict";

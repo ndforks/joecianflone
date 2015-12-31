@@ -36,12 +36,13 @@
 
 .navigation-list {
    &__item {
-      @include font-size(31px);
+      @include font-size(26px);
       font-weight: get-font-weight(ultra-bold);
       line-height: 1.1;
       padding-bottom: 8px;
+
       @media screen and ( max-height: 700px )  {
-         @include font-size(25px);
+         @include font-size(20px);
       }
    }
 

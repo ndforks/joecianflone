@@ -1,6 +1,6 @@
 @extends ('layouts.master')
 
-@section('signature', 'home stream')
+@section('signature', 'stream')
 
 @section('main')
 

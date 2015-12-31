@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>@yield('page-title', 'JoeCianflone.co')</title>
+<meta name="p:domain_verify" content="50d6eea83f06b39fe7b95c1624caf5b7">
 <meta name="description" content="@yield('page-description')">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
