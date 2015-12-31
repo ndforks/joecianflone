@@ -10,26 +10,6 @@
  *
  */
 
-$footer-background-color: #ddd;
-$footer-link-color: #bada55;
-$masthead-background: #ddd;
-$masthead-links: #a6a5a5;
-$general-link-color: #f00;
-$large-text-color: #ccc;
-
-$normal-text-color,
-$large-alt-text-color,
-$foo-text-color,
-$bar-text-color: #444;
-
-.foo {
-   color: $foo-text-color;
-}
-
-.bar {
-   background: $bar-text-color;
-}
-
 $stack-settings: (
    sans-serif:     #{"Roboto", "Helvetica Neue", sans-serif},
    serif:          #{"Patua One", Georgia, serif},
