@@ -21,8 +21,8 @@
             <ul class="navigation-list">
                <li class="navigation-list__item"><a href="#" class="projects">Projects &amp; Contributions</a>
                   <ul class="navigation-list--secondary">
-                     <li class="navigation-list__item"><a class="heisenberg" href="{{ url('/projects/heisenberg') }}">Heisenberg</a></li>
-                     <li class="navigation-list__item"><a class="laravel-sass" href="{{ url('/projects/laravel-elixir-compass-plugin') }}">Laravel Elixir Compass Plugin</a></li>
+                     <li class="navigation-list__item"><a class="heisenberg" href="//github.com/joecianflone/heisenberg-toolkit" target="_blank">Heisenberg</a></li>
+                     <li class="navigation-list__item"><a class="laravel-sass" href="//github.com/joecianflone/laravel-elixir-sass-compass"  target="_blank">Laravel Elixir Compass Plugin</a></li>
                   </ul>
                </li>
             </ul>
