@@ -11,6 +11,7 @@ class GotSomeTweets extends Event
     use SerializesModels;
 
     public $tweets;
+
     /**
      * Create a new event instance.
      *

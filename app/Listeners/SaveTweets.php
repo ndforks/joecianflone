@@ -2,12 +2,10 @@
 namespace JoeCianflone\Listeners;
 
 use JoeCianflone\Events\GotSomeTweets;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use JoeCianflone\Contracts\StreamRepository;
 use JoeCianflone\Transformers\TweetTransformer;
 
-class SaveTweets implements ShouldQueue
+class SaveTweets
 {
    private $stream;
    private $transformer;

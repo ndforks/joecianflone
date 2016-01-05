@@ -67,7 +67,9 @@ class EloquentStreamRepository implements StreamRepository {
 
    public function saveLatestToStream($item)
    {
-      $this->stream->create($item);
+      if ($this->stream->where('item_id', $item['item_id'])->count() < 1) {
+         $this->stream->create($item);
+      }
    }
 
    public function updateItemInStream($item)

@@ -1,13 +1,11 @@
 <?php
 namespace JoeCianflone\Listeners;
 
-use Illuminate\Queue\InteractsWithQueue;
 use JoeCianflone\Events\GotSomeArticles;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use JoeCianflone\Contracts\StreamRepository;
 use JoeCianflone\Transformers\ArticleTransformer;
 
-class SaveArticles implements ShouldQueue
+class SaveArticles
 {
    private $stream;
    private $transformer;
