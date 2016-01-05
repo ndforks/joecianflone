@@ -18,12 +18,12 @@ class StreamController extends Controller
    public function index()
    {
       $pinned = $this->stream->getPinnedStreamItem();
+
       if (! is_null($pinned)) {
          $pinned = json_decode($pinned);
       }
 
       $stream = json_decode($this->stream->getFullStream(10));
-
 
       return view('pages.home', compact('pinned', 'stream'));
    }
@@ -35,23 +35,20 @@ class StreamController extends Controller
 
    public function articles()
    {
-      $stream = $this->getStreamContent('article');
-
-      return view('pages.stream', compact('stream'));
+      return $this->getStreamContent('article');
    }
 
    public function tweets()
    {
-      $stream = $this->getStreamContent('tweet');
-
-      return view('pages.stream', compact('stream'));
+      return $this->getStreamContent('tweet');
    }
 
    private function getStreamContent(string $type)
    {
       try {
-         return json_decode($this->stream->getStreamType($type));
-      } catch (NoStreamItemsFoundException $e) {
+         $stream = json_decode($this->stream->getStreamType($type));
+         return view('pages.stream', compact('stream'));
+      } catch(NoStreamItemsFoundException $e) {
          return redirect()->route('home');
       }
    }

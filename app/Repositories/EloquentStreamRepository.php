@@ -67,17 +67,23 @@ class EloquentStreamRepository implements StreamRepository {
 
    public function saveLatestToStream($item)
    {
-      if ($this->stream->where('item_id', $item['item_id'])->count() < 1) {
+      if ($this->stream->where('item_id', $item['item_id'])->count() <= 0) {
          $this->stream->create($item);
       }
    }
 
    public function updateItemInStream($item)
    {
-      // TODO: basically this is always going to update
-      // and always going to say there is a revision
-      // you're going to need to make this more
-      // robust.
+      $currentItem = $this->stream
+           ->where('type', $item['type'])
+           ->where('slug', $item['slug'])
+           ->get();
+
+      if ($currentItem->count() > 0) {
+
+      }
+
+
       $this->stream
            ->where('type', $item['type'])
            ->where('slug', $item['slug'])
@@ -88,7 +94,7 @@ class EloquentStreamRepository implements StreamRepository {
 
    }
 
-   public function exists($item)
+   public function articleExists($item)
    {
       return $this->stream
                   ->where('type', $item['type'])
