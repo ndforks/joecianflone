@@ -7,7 +7,7 @@
       <div class="js-toggle-hide">
          <nav>
             <ul class="navigation-list">
-               <li class="navigation-list__item"><a class="stream" href="{{ url('/') }}">Stream</a>
+               <li class="navigation-list__item"><a class="stream" href="{{ url('/') }}">stream</a>
                   <ul class="navigation-list--secondary">
                      <li class="navigation-list__item"><a class="article" href="{{ url('/stream/articles') }}">#articles</a></li>
                      <li class="navigation-list__item"><a class="tweets" href="{{ url('/stream/tweets') }}">#tweets</a></li>
@@ -19,7 +19,7 @@
             </ul>
             <hr class="rule--nav">
             <ul class="navigation-list">
-               <li class="navigation-list__item"><a href="#" class="projects">Projects &amp; Contributions</a>
+               <li class="navigation-list__item"><a href="#" class="projects">projects &amp; contributions</a>
                   <ul class="navigation-list--secondary">
                      <li class="navigation-list__item"><a class="heisenberg" href="//github.com/joecianflone/heisenberg-toolkit" target="_blank">Heisenberg</a></li>
                      <li class="navigation-list__item"><a class="laravel-sass" href="//github.com/joecianflone/laravel-elixir-sass-compass"  target="_blank">Laravel Elixir Compass Plugin</a></li>

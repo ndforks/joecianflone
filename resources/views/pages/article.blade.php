@@ -1,5 +1,19 @@
 @extends ('layouts.master')
 
+@section('page-title', $element->content->headline . "| Joe Cianflone | joecianflone.co")
+@section('description', $element->content->summary)
+
+@section('og-sitename', 'joecianflone.co')
+@section('og-title', $element->content->headline)
+@section('og-type', 'website')
+@section('og-description', $element->content->summary)
+@section('og-image', '')
+
+@section('t-url', 'https://joecianflone.co')
+@section('t-title', $element->content->headline)
+@section('t-description', $element->content->summary)
+@section('t-image', '')
+
 @section('main')
    <article class="post">
       <header class="post__header">
