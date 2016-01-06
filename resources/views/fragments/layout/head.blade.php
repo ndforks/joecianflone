@@ -6,24 +6,20 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Google+ because that one asshat in your company is gonna ask about it -->
-<meta itemprop="name" content="@yield('gplus-name')">
-<meta itemprop="description" content="@yield('gplus-description')">
-<meta itemprop="image" content="@yield('gplus-image')">
-
 <!-- Facebook tags, because you know you're gonna add them -->
-<meta property="og:site_name" content="@yield('og-sitename')">
-<meta property="og:title" content="@yield('og-title')">
-<meta property="og:type" content="@yield('og-type')">
+<meta property="og:app_id" content="993597193996291">
+<meta property="og:site_name" content="@yield('og-sitename', 'JoeCianflone')">
+<meta property="og:title" content="@yield('og-title', 'Joe Cianflone | joecianflone.co')">
+<meta property="og:type" content="@yield('og-type', 'website')">
 <meta property="og:description" content="@yield('og-description')">
-<meta property="og:image" content="@yield('og-image')">
+<meta property="og:image" content="@yield('og-image', 'https://pbs.twimg.com/profile_images/561226905815642113/Lv_DZLTF_400x400.jpeg')">
 
 <!-- Because of course Twitter needs meta tags too -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:url" content="@yield('t-url')">
-<meta name="twitter:title" content="@yield('t-title')">
+<meta name="twitter:url" content="@yield('t-url', 'https://joecianflone.co')">
+<meta name="twitter:title" content="@yield('t-title', 'Joe Cianflone | joecianflone.co')">
 <meta name="twitter:description" content="@yield('t-description')">
-<meta name="twitter:image" content="@yield('t-image')">
+<meta name="twitter:image" content="@yield('t-image', 'https://pbs.twimg.com/profile_images/561226905815642113/Lv_DZLTF_400x400.jpeg')">
 
 <!-- loading up modernizr -->
 <script src="/assets/js/modernizr.min.js"></script>
