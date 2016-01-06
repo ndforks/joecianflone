@@ -11,8 +11,8 @@ class Kernel extends ConsoleKernel
    * @var array
    */
    protected $commands = [
-      'JoeCianflone\Console\Commands\GetTweets',
-      'JoeCianflone\Console\Commands\GetArticles',
+      \JoeCianflone\Console\Commands\GetTweets::class,
+      \JoeCianflone\Console\Commands\GetArticles::class,
    ];
 
    /**
@@ -23,7 +23,7 @@ class Kernel extends ConsoleKernel
    */
    protected function schedule(Schedule $schedule)
    {
-      $schedule->command('stream:tweets')->everyMinute();
-      $schedule->command('stream:articles')->dailyAt('9:30');
+      $schedule->command('stream:tweets')->everyMinute()->withoutOverlapping();
+      $schedule->command('stream:articles')->dailyAt('9:30')->withoutOverlapping();
    }
 }
