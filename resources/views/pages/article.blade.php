@@ -5,14 +5,11 @@
 
 @section('og-sitename', 'joecianflone.co')
 @section('og-title', $element->content->headline)
-@section('og-type', 'website')
 @section('og-description', $element->content->summary)
-@section('og-image', '')
 
-@section('t-url', 'https://joecianflone.co')
+@section('t-url', 'https://joecianflone.co/article/'.$element->slug)
 @section('t-title', $element->content->headline)
 @section('t-description', $element->content->summary)
-@section('t-image', '')
 
 @section('main')
    <article class="post">
@@ -23,7 +20,7 @@
                <li class="meta-list__item"><span class="fa fa-pencil-square"></span></li>
                <li class="meta-list__item">{{ $element->content->byline }}</li>
                <li class="meta-list__item"><time data-livestamp="{{ $element->item_created_at }}" datetime="{{ $element->item_created_at }}">{{ $element->item_created_at }}</time></li>
-               <li class="meta-list__item"><strong>SHARE</strong>: <a href="#" title=""><span class="fa fa-twitter"></span></a> &nbsp;&nbsp; <a href="#" title=""><span class="fa fa-facebook"></span></a></li>
+{{--                <li class="meta-list__item"><strong>SHARE</strong>: <a href="#" title=""><span class="fa fa-twitter"></span></a> &nbsp;&nbsp; <a href="#" title=""><span class="fa fa-facebook"></span></a></li> --}}
             </ul>
          </div>
       </header>
