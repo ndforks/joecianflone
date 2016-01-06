@@ -32,7 +32,7 @@ class SaveArticles
       $articles = $this->transformer->transform($event->articles);
 
       foreach ($articles as $article) {
-         if ($this->stream->exists($article)) {
+         if ($this->stream->articleExists($article)) {
             $this->stream->updateItemInStream($article);
          } else {
             $this->stream->saveLatestToStream($article);

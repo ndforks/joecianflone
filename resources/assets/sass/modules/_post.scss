@@ -18,25 +18,22 @@
       margin: 1em 0 3em 0;
 
       h1 {
-         @include font-size(40px);
+         @include font-size(30px);
          color: inherit;
          letter-spacing: -1px;
          line-height: 1;
          font-weight: get-font-weight(ultra-bold);
          @include media("<bitty") {
-            @include font-size(34px);
+            @include font-size(28px);
          }
          @include media("<tiny") {
-            @include font-size(25px);
+            @include font-size(24px);
          }
       }
       h2 {
          color: inherit;
-         @include font-size(30px);
+         @include font-size(26px);
          @include media("<bitty") {
-            @include font-size(20px);
-         }
-         @include media("<tiny") {
             @include font-size(18px);
          }
       }

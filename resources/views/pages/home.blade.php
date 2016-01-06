@@ -10,11 +10,11 @@
 
    @foreach ($stream->data as $element)
 
-      @if ($element->type === "tweet")
+      @if ($element->type === "tweet" && $element->is_pinned === false)
          @include("fragments.stream.tweet")
       @endif
 
-      @if ($element->type === "article")
+      @if ($element->type === "article" && $element->is_pinned === false)
          @include("fragments.stream.article-summary")
       @endif
 
