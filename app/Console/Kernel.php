@@ -23,7 +23,12 @@ class Kernel extends ConsoleKernel
    */
    protected function schedule(Schedule $schedule)
    {
-      $schedule->command('stream:tweets')->everyMinute()->withoutOverlapping();
-      $schedule->command('stream:articles')->dailyAt('9:30')->withoutOverlapping();
+      $schedule->command('stream:tweets')
+               ->everyThirtyMinutes()
+               ->withoutOverlapping();
+
+      $schedule->command('stream:articles')
+               ->dailyAt('9:30')
+               ->withoutOverlapping();
    }
 }
