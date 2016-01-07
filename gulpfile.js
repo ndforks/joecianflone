@@ -95,6 +95,7 @@ var scripts = {
 
    main: [
       config.src.bower + "jquery-validation/dist/jquery.validate.js",
+      config.src.bower + "prism/prism.js",
       config.src.bower + "underscore/underscore.js",
       config.src.bower + "underscore.string/dist/underscore.string.js",
       config.src.bower + "momentjs/moment.js",
