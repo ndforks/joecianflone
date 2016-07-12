@@ -18,17 +18,16 @@ class Stream extends Model
 
     public function setContentAttribute($value)
     {
-       $this->attributes['content'] = json_encode($value);
+        $this->attributes['content'] = json_encode($value);
     }
 
     public function getContentAttribute($value)
     {
-       return json_decode($value);
+        return json_decode($value);
     }
 
     public function getMetaAttribute($value)
     {
-       return json_decode($value);
+        return json_decode($value);
     }
-
 }
