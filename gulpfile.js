@@ -96,6 +96,10 @@ var scripts = {
    main: [
       config.src.bower + "jquery-validation/dist/jquery.validate.js",
       config.src.bower + "prism/prism.js",
+      config.src.bower + "prism/components/prism-scss.js",
+      config.src.bower + "prism/components/prism-php.js",
+      config.src.bower + "prism/components/prism-php-extras.js",
+      config.src.bower + "prism/plugins/remove-initial-line-feed/prism-remove-initial-line-feed.js",
       config.src.bower + "underscore/underscore.js",
       config.src.bower + "underscore.string/dist/underscore.string.js",
       config.src.bower + "momentjs/moment.js",
