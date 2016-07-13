@@ -20,7 +20,11 @@
                <li class="meta-list__item"><span class="fa fa-pencil-square"></span></li>
                <li class="meta-list__item">{{ $element->content->byline }}</li>
                <li class="meta-list__item"><time data-livestamp="{{ $element->item_created_at }}" datetime="{{ $element->item_created_at }}">{{ $element->item_created_at }}</time></li>
-{{--                <li class="meta-list__item"><strong>SHARE</strong>: <a href="#" title=""><span class="fa fa-twitter"></span></a> &nbsp;&nbsp; <a href="#" title=""><span class="fa fa-facebook"></span></a></li> --}}
+               <li class="meta-list__item--share">
+                   <strong>SHARE</strong>:
+                   <a href="//twitter.com/share?text={{ $element->content->headline }}&amp;url=https://joecianflone.co/article/{{$element->slug}}&amp;via=JoeCianflone" title="Share on twitter"><span class="fa fa-twitter"></span></a> &nbsp;&nbsp;
+                   <a href="//www.facebook.com/dialog/feed?app_id=993597193996291&amp;display=popup&amp;caption={{$element->content->headline}}&amp;link=https://joecianflone.co/article/{{$element->slug}}" title="Share on Facebook"><span class="fa fa-facebook"></span></a>
+                </li>
             </ul>
          </div>
       </header>

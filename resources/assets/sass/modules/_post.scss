@@ -23,8 +23,22 @@
          letter-spacing: -1px;
          line-height: 1;
          font-weight: get-font-weight(ultra-bold);
+         > a {
+             border-bottom: 1px solid get-color(white);
+             color: inherit;
+             display: inline-block;
+             line-height: 0.8;
+             text-decoration: none;
+             transition: all 0.3s ease-in-out 0s;
+
+             &:hover {
+                 border-bottom: 1px solid get-color(picton-blue);
+                 color: get-color(picton-blue);
+             }
+         }
          @include media("<bitty") {
             @include font-size(28px);
+            line-height: 1;
          }
          @include media("<tiny") {
             @include font-size(24px);

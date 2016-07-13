@@ -1,6 +1,6 @@
    <article class="post--featured">
       <header class="post__header">
-         <h1>{{ $pinned->content->headline }}</h1>
+         <h1><a href="/article/{{ $pinned->slug }}" title="{{ $pinned->content->headline }}">{{ $pinned->content->headline }}</a></h1>
          <div class="meta-data--full">
             <ul class="meta-list">
                <li class="meta-list__item"><span class="fa fa-thumb-tack"></span></li>

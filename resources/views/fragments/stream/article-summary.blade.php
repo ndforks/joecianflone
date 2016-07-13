@@ -1,6 +1,6 @@
 <article class="post">
    <header class="post__header">
-      <h1>{{ $element->content->headline }}</h1>
+      <h1><a href="/article/{{ $element->slug }}" title="{{ $element->content->headline }}">{{ $element->content->headline }}</a></h1>
       <div class="meta-data--full">
          <ul class="meta-list">
             <li class="meta-list__item"><span class="fa fa-pencil-square"></span></li>
