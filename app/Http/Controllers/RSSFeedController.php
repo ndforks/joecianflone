@@ -18,8 +18,11 @@ class RSSFeedController extends Controller
    public function index()
    {
       $fullStream = json_decode($this->stream->getFullStream());
-      dd ($fullStream->data);
-      return response()->view('feed', compact('fullStream'))->header('Content-Type', 'text/xml');
+      $siteContent = array_filter($fullStream->data, function($item) {
+          return $item->type !== 'tweet';
+      });
+
+      return response()->view('feed', compact('siteContent'))->header('Content-Type', 'text/xml');
    }
 
 }
