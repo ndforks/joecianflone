@@ -9,8 +9,6 @@
            margin: 0;
         }
          main {
-            border: 2px solid #676464;
-            border-radius: 50%;
             display: block;
             margin: 80px auto 0 auto;
             padding: 30px;

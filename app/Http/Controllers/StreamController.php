@@ -40,6 +40,7 @@ class StreamController extends Controller
 
    public function tweets()
    {
+       //dd($this->getStreamContent('tweet'));
       return $this->getStreamContent('tweet');
    }
 

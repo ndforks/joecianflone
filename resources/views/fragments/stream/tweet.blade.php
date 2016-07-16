@@ -11,7 +11,11 @@
             </div>
          @endif
          <div class={!! isset($element->content->entities->media) ? "mediabox__text" : "mediabox__text--full" !!}>
-            <p class="tweet-block__text">{!! Twitter::linkify($element->content->text) !!}</p>
+             @if ($element->content->retweeted)
+                 <p class="tweet-block__text">{!! Twitter::linkify($element->content->retweeted_status->text) !!}</p>
+             @else
+                 <p class="tweet-block__text">{!! Twitter::linkify($element->content->text) !!}</p>
+             @endif
          </div>
          @if (isset($element->content->entities->media))
             <div class="meta-data--inside">
