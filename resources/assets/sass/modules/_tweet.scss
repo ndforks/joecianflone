@@ -22,6 +22,24 @@
 .tweet-block {
    margin: 0;
    padding: 1.5rem 0;
+   &__label {
+       @include font-size(12px);
+       font {
+           style: italic;
+           weight: get-font-weight(light);
+       }
+       text-transform: uppercase;
+       a {
+           border-bottom: 1px solid get-color(white);
+           text-decoration: none;
+           transition: all 0.3s ease-in-out 0s;
+
+         &:hover {
+             border-bottom: 1px solid get-color(picton-blue);
+             color: get-color(picton-blue);
+         }
+       }
+   }
    &__text {
       @include font-size(28px);
       color: get-color(charcoal);

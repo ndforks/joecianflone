@@ -37,6 +37,16 @@
       display: inline-block;
       padding: 0 5px;
       font-weight: get-font-weight(light);
+      a {
+           border-bottom: 1px solid get-color(white);
+           color: get-color(picton-blue);
+           text-decoration: none;
+           transition: all 0.3s ease-in-out 0s;
+
+          &:hover {
+             border-bottom: 1px solid get-color(picton-blue);
+          }
+      }
       &--share {
           @extend .meta-list__item;
           display: block;
