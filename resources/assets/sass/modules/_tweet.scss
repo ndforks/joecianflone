@@ -51,7 +51,7 @@
          @include font-size(23px);
       }
       @include media("<bitty") {
-         @include font-size(18px);
+         @include font-size(22px);
          line-height: 1.4;
       }
       a {

@@ -21,13 +21,13 @@
          @include font-size(30px);
          color: inherit;
          letter-spacing: -1px;
-         line-height: 1;
+         line-height: 1.1;
          font-weight: get-font-weight(ultra-bold);
          > a {
              border-bottom: 1px solid get-color(white);
              color: inherit;
              display: inline-block;
-             line-height: 0.8;
+             line-height: inherit;
              text-decoration: none;
              transition: all 0.3s ease-in-out 0s;
 
@@ -59,13 +59,12 @@
 
       @include media("<bitty") {
          @include font-size(16px);
-         line-height: 1.3;
+         line-height: 1.5;
       }
 
       h2, h3, h4, h5 {
          font-weight: get-font-weight(bolder);
          color: inherit;
-         line-height: -1px;
          margin: .5em 0 0 .25em
       }
       p {

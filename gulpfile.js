@@ -228,7 +228,7 @@ gulp.task('default', ['js', 'sass', 'imagemin', 'watch']);
 
 // Does a little spring cleaning if you ever need it...
 // just say $> gulp boot
-gulp.task('boot', ['cleaner', 'bower', 'copy']);
+gulp.task('boot', ['cleaner', 'copy']);
 
 // just say $> gulp compile
 gulp.task('compile', ['boot', 'js', 'sass', 'imagemin']);
