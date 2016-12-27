@@ -1,0 +1,21 @@
+# Upcoming Changes
+
+## First set
+- Update to latest version of Laravel (current: 5.2 latest 5.3)
+- Update to latest Heisenberg code
+
+## Front End changes
+- Better mobile view
+- Better design for tweets with images
+- Update flexbox usage?
+- Change how the navigation toggle works
+- convert backticks to <code> section on FE
+
+## New backend changes
+- Add YouTube API
+- Update tag filtering
+
+## Nice to have?
+- More API driven
+- Update Front to Vue
+
