@@ -19,11 +19,12 @@ class ArticleTransformer
          $yaml = $document->getYAML();
          $html = $document->getContent();
 
+
          return [
             'id'              => Uuid::uuid1()->toString(),
             'type'            => 'article',
             'item_id'         => md5($article),
-            'slug'            => $yaml['slug'],
+            'slug'            => isset($yaml['slug']) ? $yaml['slug'] : null,
             'is_pinned'       => isset($yaml['pin']) ? $yaml['pin'] : false,
             'item_created_at' => Carbon::parse(isset($yaml['pubdate']) ? $yaml['pubdate'] : Carbon::now()),
             'content' => [

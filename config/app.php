@@ -142,7 +142,7 @@ return [
         'JoeCianflone\Providers\EventServiceProvider',
         'JoeCianflone\Providers\RouteServiceProvider',
         'JoeCianflone\Providers\DropboxServiceProvider',
-
+//
          'Thujohn\Twitter\TwitterServiceProvider',
     ],
 
