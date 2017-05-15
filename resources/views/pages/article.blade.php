@@ -29,7 +29,8 @@
          </div>
       </header>
       <section class="post__body">
-         {!! $element->content->body !!}
+          {{ $element->content->summary }}
+          {!! $element->content->body !!}
       </section>
    </article>
 @stop
