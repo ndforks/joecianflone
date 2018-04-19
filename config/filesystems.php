@@ -82,7 +82,7 @@ return [
 
         'dropbox' => [
            'driver' => 'dropbox',
-           'accessToken' => getenv("DROPBOX_OAUTH_TOKEN"),
+           'accessToken' => getenv("DROPBOX_TOKEN"),
            'clientIdentifier' => getenv("DROPBOX_API_SECRET"),
         ]
     ],
