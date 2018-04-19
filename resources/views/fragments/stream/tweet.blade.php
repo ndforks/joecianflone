@@ -13,10 +13,20 @@
          <div class={!! isset($element->content->entities->media) ? "mediabox__text" : "mediabox__text--full" !!}>
              @if ($element->content->retweeted)
                  <p class="tweet-block__text">
-                     {!! Twitter::linkify($element->content->retweeted_status->text) !!}
+                    @if (isset($element->content->retweeted_status->full_text))
+                        {!! Twitter::linkify($element->content->retweeted_status->full_text) !!}
+                    @else
+                        {!! Twitter::linkify($element->content->retweeted_status->text) !!}
+                    @endif
                  </p>
              @else
-                 <p class="tweet-block__text">{!! Twitter::linkify($element->content->text) !!}</p>
+                 <p class="tweet-block__text">
+                    @if (isset($element->content->full_text))
+                        {!! Twitter::linkify($element->content->full_text) !!}
+                    @else
+                        {!! Twitter::linkify($element->content->text) !!}
+                    @endif
+                </p>
              @endif
          </div>
          @if (isset($element->content->entities->media))

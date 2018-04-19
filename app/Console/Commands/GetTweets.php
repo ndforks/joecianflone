@@ -42,7 +42,15 @@ class GetTweets extends Command
    {
       $count = $this->argument("count");
 
-      $rawTweets = Twitter::getUserTimeline([['screen_name' => 'joecianflone', 'count' => $count]]);
+      $rawTweets = Twitter::getUserTimeline([
+        'count' => $count,
+
+     ]);
+
+    //   $rawTweets = Twitter::getUserTimeline([
+    //       ['screen_name' => 'joecianflone', 'count' => $count, 'tweet_mode' => 'extended']]);
+    //   dd ($rawTweets);
+
       event(new GotSomeTweets($rawTweets));
    }
 }
