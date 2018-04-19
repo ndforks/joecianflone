@@ -37,7 +37,7 @@
             </ul>
          </nav>
          <footer>
-            <p>The content on this site is mine alone. The views expressed herein do not necessarily reflect the views of my employers, employees, clients, friends, family, children, people I know at chruch, taco vendors, barista, dead relatives or hell even myself...shocking as it may be I sometimes change my opinion. Bottom line: if you hold something that I said against me or someone else I happen to know, you're the assbutt not me. Have a nice day.</p>
+            <p>The content on this site is mine alone. The views expressed herein do not necessarily reflect the views of my employers, employees, clients, friends, family, children, people I know at church, taco vendors, barista, dead relatives or hell even myself...shocking as it may be I sometimes change my opinion. Bottom line: if you hold something that I said against me or someone else I happen to know, you're the assbutt not me. Have a nice day.</p>
             <p>This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.</p>
          </footer>
       </div>
