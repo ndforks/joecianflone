@@ -30,9 +30,10 @@
             <ul class="navigation-list--icons">
                <li class="navigation-list__item"><a href="//twitter.com/JoeCianflone" target="_blank" title="Twitter"><span class="fa fa-twitter"></span></a></li>
                <li class="navigation-list__item"><a href="//github.com/JoeCianflone" target="_blank" title="Github"><span class="fa fa-github"></span></a></li>
+               <li class="navigation-list__item"><a href="//youtube.com/c/StudioCianflone" target="_blank" title="YouTube"><span class="fa fa-youtube"></span></a></li>
                <li class="navigation-list__item"><a href="//livecoding.tv/joecianflone" target="_blank" title="LiveCoding.tv"><span class="fa fa-code"></span></a></li>
                <li class="navigation-list__item"><a href="{{ url('/feed') }}" title="RSS Feed"><span class="fa fa-rss"></span></a></li>
-{{--                <li class="navigation-list__item"><a href="//youtube.com/JoeCianflone" target="_blank" title="YouTube"><span class="fa fa-youtube"></span></a></li>
+{{--
                <li class="navigation-list__item"><a href="/contact" title="Contact"><span class="fa fa-envelope"></span></a></li> --}}
             </ul>
          </nav>
